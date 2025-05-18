@@ -1,9 +1,17 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
+import indiamartLogo from "../assets/indiamart-logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="text-white pt-5 pb-3" style={{ backgroundColor: "#1f2a44" }}>
+    <footer className="text-white pt-5 pb-3" style={{ backgroundColor: " #0e3d59" }}>
       <div className="container">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
 
@@ -22,11 +30,21 @@ const Footer = () => {
             <h5 className="fw-bold mb-3 footer-heading" style={{ color: "blue" }}>
               Contact Us
             </h5>
-            <p style={{ color: "white" }}><FaPhone className="me-2" />  76930-39555 
-             </p>
-             <p style={{ color: "white" }}><FaPhone className="me-2" /> 
-             96699-54433</p>
-            <p style={{ color: "white" }}><FaEnvelope className="me-2" />servicesgeocon@gmail.com</p>
+            <p>
+              <a href="tel:7693039555" className="footer-link">
+                <FaPhone className="me-2" /> 76930-39555
+              </a>
+            </p>
+            <p>
+              <a href="tel:9669954433" className="footer-link">
+                <FaPhone className="me-2" /> 96699-54433
+              </a>
+            </p>
+            <p>
+              <a href="mailto:servicesgeocon@gmail.com" className="footer-link">
+                <FaEnvelope className="me-2" /> servicesgeocon@gmail.com
+              </a>
+            </p>
           </div>
 
           {/* Social + Map Section */}
@@ -34,28 +52,36 @@ const Footer = () => {
             <h5 className="fw-bold mb-3 footer-heading" style={{ color: "blue" }}>
               Connect with Us
             </h5>
-            <div className="d-flex gap-2 mb-3">
-              <a href="#" className="btn btn-outline-light btn-sm rounded-circle">
-                <FaFacebookF />
+            <div className="d-flex gap-3 mb-3">
+              <a href="https://www.instagram.com/geoconservices/" target="_blank" rel="noopener noreferrer"
+                className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center"
+                style={{ width: '42px', height: '42px', fontSize: '20px' }}>
+                <FaInstagram />
               </a>
-              <a href="#" className="btn btn-outline-light btn-sm rounded-circle">
-                <FaTwitter />
+
+              <a href="https://youtube.com/@geoconservices3352?si=Ym13xzyEmM0xrUEc" target="_blank" rel="noopener noreferrer"
+                className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center"
+                style={{ width: '42px', height: '42px', fontSize: '20px' }}>
+                <FaYoutube />
               </a>
-              <a href="#" className="btn btn-outline-light btn-sm rounded-circle">
-                <FaLinkedinIn />
+
+              <a href="https://www.indiamart.com/geoconservices/" target="_blank" rel="noopener noreferrer"
+                className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center"
+                style={{ width: '42px', height: '42px' }}>
+                <img src={indiamartLogo} alt="IndiaMART" style={{ width: "26px", height: "26px" }} />
               </a>
             </div>
+
             <div>
-        
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7334.709203119248!2d77.44349640698731!3d23.193744315866667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c438941ae25cb%3A0x7a27309f61f3b592!2sGeocon%20Services!5e0!3m2!1sen!2sin!4v1745213063170!5m2!1sen!2sin"
-              width="100%"
-                 height="150"
+                width="100%"
+                height="150"
                 style={{ border: 0 }}
-                 allowfullscreen=""
-                  loading="lazy" 
-                     title="Our Location"
-                  referrerpolicy="no-referrer-when-downgrade">
-                  </iframe>
+                allowFullScreen=""
+                loading="lazy"
+                title="Our Location"
+                referrerPolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
           </div>
 
@@ -75,7 +101,6 @@ const Footer = () => {
               vidhyanagar Narmadapuram road Bhopal 462026
             </p>
           </div>
-
         </div>
 
         {/* Footer Bottom */}
@@ -83,21 +108,32 @@ const Footer = () => {
           <p className="mb-1" style={{ color: "white" }}>
             &copy; {new Date().getFullYear()} Geocon Services. All rights reserved.
           </p>
-          <a href="#privacy" className="text-white me-3">Privacy Policy</a>
-          <a href="#terms" className="text-white">Terms of Service</a>
+         
+          <Link to="/termsofservices" className="text-white">Terms of Service</Link>
         </div>
       </div>
 
       {/* Custom Styles */}
       <style>
         {`
+          .footer-heading {
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+          }
+
           .footer-heading:hover {
             transform: translateY(-5px);
             color: #f8f9fa;
           }
 
-          .footer-heading {
-            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+          .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+
+          .footer-link:hover {
+            color: #00d4ff;
+            text-decoration: underline;
           }
         `}
       </style>

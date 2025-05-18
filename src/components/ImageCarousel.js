@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import img01 from '../assets/image01.png';
-import img02 from '../assets/image02.png';
+import img02 from '../assets/about-image.jpg';
 import img03 from '../assets/image03.jpg';
 import img04 from '../assets/image04.jpg';
 
@@ -58,7 +58,7 @@ const ImageCarousel = () => {
           }
 
           .carousel-item img {
-            height: 85vh;
+            height: 90vh;
             object-fit: cover;
             filter: brightness(0.6);
           }

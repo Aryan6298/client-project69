@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import { Container, Card } from 'react-bootstrap';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TopBar from '../components/TopBar';
@@ -12,125 +12,137 @@ const ContactPage = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Form submission logic here
-  };
-
   return (
     <>
-      <TopBar />
-      <NavigationBar />
+      {/* TopBar */}
+      <div style={{ position: 'relative', zIndex: 1030 }}>
+        <TopBar />
+      </div>
 
+      {/* NavigationBar */}
+      <div style={{ position: 'relative', zIndex: 1040, paddingBottom: '30px' }}>
+        <NavigationBar />
+      </div>
+
+      {/* Custom styles */}
       <style>{`
-        .contact-heading {
-          font-weight: 700;
-          font-size: 2.5rem;
-          color: #1f2a44;
+        body {
+          background: linear-gradient(to bottom right, #005c97, #28a745);
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
         }
 
-        .form-control {
-          border-radius: 10px;
+        .main-heading {
+          font-size: 2.8rem;
+          font-weight: bold;
+          color: #ffffff;
+          transition: all 0.4s ease;
+        }
+
+        .main-heading:hover {
+          color: #f8f9fa;
+          transform: scale(1.05);
+          letter-spacing: 1px;
+        }
+
+        .subheading {
+          color: #e2e2e2;
+          font-size: 1.1rem;
           transition: all 0.3s ease;
         }
 
-        .form-control:focus {
-          border-color: #0d6efd;
-          box-shadow: 0 0 8px rgba(13, 110, 253, 0.3);
+        .subheading:hover {
+          color: #d4edda;
+          transform: scale(1.03);
         }
 
-        .submit-button {
-          transition: transform 0.3s ease, background-color 0.3s ease;
+        .info-card {
+          border-radius: 20px;
+          background-color: #f8f9fa;
+          padding: 30px;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
         }
 
-        .submit-button:hover {
-          transform: scale(1.05);
-          background-color: #0b5ed7;
-        }
-
-        .contact-card {
+        .inner-box {
+          background: #ffffff;
+          padding: 25px;
           border-radius: 15px;
-          transition: all 0.3s ease-in-out;
+          margin-top: 20px;
         }
 
-        .contact-card:hover {
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-          transform: translateY(-5px);
+        .contact-label {
+          font-weight: 600;
+          font-size: 1.1rem;
+          color: #343a40;
         }
 
-        .contact-icon {
+        .icon {
+          color: #007bff;
           margin-right: 8px;
-          color: #0d6efd;
+        }
+
+        .contact-link {
+          color: #007bff;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        .contact-link:hover {
+          text-decoration: underline;
+        }
+
+        .text-muted {
+          color: #6c757d !important;
         }
       `}</style>
 
-      <Container className="my-5">
-        <h1 className="text-center contact-heading mb-4" data-aos="fade-down">
-          Have Questions? Drop A Line
-        </h1>
-        <p className="text-muted text-center mb-5" data-aos="fade-up">
-          Your email address will not be published. Required fields are marked *
+      <Container className="my-5 text-center" data-aos="fade-up">
+        <h1 className="main-heading mb-2">Get In Touch</h1>
+        <p className="subheading mb-4">
+          We are here to assist you. Feel free to reach out anytime!
         </p>
 
-        <Row>
-          {/* Contact Form */}
-          <Col md={8} data-aos="fade-right">
-            <Form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
-              <Form.Group className="mb-4" controlId="formName">
-                <Form.Label>Complete Name *</Form.Label>
-                <Form.Control type="text" required placeholder="Enter your name" />
-              </Form.Group>
+        <Card className="info-card mx-auto" style={{ maxWidth: '700px' }}>
+          <h4 className="text-primary mb-2">Contact Information</h4>
+          <p className="mb-3 text-dark">We are available 7 days a week!</p>
 
-              <Form.Group className="mb-4" controlId="formEmail">
-                <Form.Label>Email Address *</Form.Label>
-                <Form.Control type="email" required placeholder="Enter your email" />
-              </Form.Group>
+          <div className="inner-box">
+            <div className="mb-3">
+              <span className="contact-label">
+                <FaMapMarkerAlt className="icon" /> Address
+              </span>
+              <p className="text-muted mt-1 mb-3">
+                84/3, NEAR KANKESHWARI INFOTECH GATE, NANDA NAGAR, INDORE,<br />
+                Indore, Madhya Pradesh, 452019.
+              </p>
+            </div>
 
-              <Form.Group className="mb-4" controlId="formSubject">
-                <Form.Label>Subject *</Form.Label>
-                <Form.Control type="text" required placeholder="Enter subject" />
-              </Form.Group>
+            <div className="mb-3">
+              <span className="contact-label">
+                <FaEnvelope className="icon" /> Mail ID
+              </span>
+              <p className="mt-1 mb-3">
+                <a href="mailto:servicesgeocon@gmail.com" className="contact-link">
+                  servicesgeocon@gmail.com
+                </a>
+              </p>
+            </div>
 
-              <Form.Group className="mb-4" controlId="formDescription">
-                <Form.Label>Description *</Form.Label>
-                <Form.Control as="textarea" rows={4} required placeholder="Write your message here..." />
-              </Form.Group>
-
-              <div className="d-grid">
-                <Button variant="primary" type="submit" size="lg" className="submit-button">
-                  Submit Now
-                </Button>
-              </div>
-            </Form>
-          </Col>
-
-          {/* Contact Info */}
-          <Col md={4} className="mt-5 mt-md-0" data-aos="fade-left">
-            <Card className="h-100 shadow-sm contact-card bg-white p-3">
-              <Card.Body>
-                <h3 className="mb-4 text-primary">Get In Touch</h3>
-                <p className="lead">We are at your disposal 7 days a week!</p>
-
-                <div className="mt-4">
-                  <h6><FaMapMarkerAlt className="contact-icon" /> Address</h6>
-                  <p className="text-muted mb-3">
-                    84, Nanda Nagar<br />
-                    Indore - 452011
-                  </p>
-
-                  <h6><FaEnvelope className="contact-icon" /> Mail ID</h6>
-                  <p className="text-muted mb-3">servicesgeocon@gmail.com</p>
-
-                  <h6><FaPhoneAlt className="contact-icon" /> Phone</h6>
-                  <p className="text-muted">
-                    +91 9827788586<br />
-                    9039363465
-                  </p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+            <div>
+              <span className="contact-label">
+                <FaPhoneAlt className="icon" /> Phone
+              </span>
+              <p className="mt-1 mb-0">
+                <a href="tel:+919827788586" className="contact-link d-block">
+                  +91 9827788586
+                </a>
+                <a href="tel:+919039363465" className="contact-link d-block">
+                  +91 9039363465
+                </a>
+              </p>
+            </div>
+          </div>
+        </Card>
       </Container>
 
       <Footer />

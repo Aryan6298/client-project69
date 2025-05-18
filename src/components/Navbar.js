@@ -1,91 +1,242 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import logo from '../assets/final-main-logo.png';
+import { Link } from 'react-router-dom'; // for routing to homepage
 
 const NavigationBar = () => {
-  const navStyle = {
-    backgroundColor: '#1f2a44',
-    width: '100%',
-    zIndex: 1030,
-  };
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const linkStyle = {
-    color: '#ffffff',
-    margin: '0 10px',
-    position: 'relative',
-    textDecoration: 'none',
-  };
-
-  const activeLinkStyle = {
-    color: '#00bcd4',
-  };
-
-  const linkHoverStyle = `
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: -4px;
-      background-color: #ffffff;
-      transition: all 0.3s ease;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-  `;
-
-  const messageStyle = {
-    color: '#ffffff',
-    fontStyle: 'italic',
-    fontSize: '1rem',
-    fontWeight: 500,
-    whiteSpace: 'nowrap',
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <style>{linkHoverStyle}</style>
+      <style>{`
+        .navbar-custom {
+          background: #0e3d59;
+          transition: all 0.5s ease;
+          z-index: 1040;
+          position: absolute;
+          top: -8px;
+          width: 100%;
+        }
 
-      <Navbar expand="lg" style={navStyle} sticky="top">
-        <Container fluid className="d-flex justify-content-between align-items-center">
-          {/* Left side - Nav links */}
-          <Nav className="d-flex flex-row">
-            <NavLink
-              to="/"
-              style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
-              className="nav-link"
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/services"
-              style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
-              className="nav-link"
-            >
-              Services
-            </NavLink>
-            <NavLink
-              to="/about"
-              style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
-              className="nav-link"
-            >
-              About Us
-            </NavLink>
-            <NavLink
-              to="/contact"
-              style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
-              className="nav-link"
-            >
-              Contact
-            </NavLink>
+        .navbar-fixed {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link {
+          color: white !important;
+          margin-left: 1rem;
+          position: relative;
+          opacity: 1;
+          transition: transform 1.5s ease, opacity 1.5s ease;
+          text-decoration: none !important;
+        }
+
+        .active-link {
+          font-weight: bold;
+          color: #26c4bf !important;
+        }
+
+        .nav-initial-container {
+          position: absolute;
+          left: 0;
+          display: flex;
+          gap: 1rem;
+        }
+
+        .nav-shifted-container {
+          position: static;
+          margin-left: auto;
+          display: flex;
+          gap: 1rem;
+        }
+
+        .brand-box {
+          display: flex;
+          align-items: center;
+          opacity: 0;
+          transform: translateX(-40px);
+          transition: all 0.8s ease;
+        }
+
+        .brand-box.scrolled {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .brand-box span {
+          color: #26c4bf !important;
+        }
+
+        .nav-shifted-container .nav-link {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+
+        .nav-shifted-container .nav-link:nth-child(1) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 0.4s;
+        }
+        .nav-shifted-container .nav-link:nth-child(2) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 0.8s;
+        }
+        .nav-shifted-container .nav-link:nth-child(3) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 1.2s;
+        }
+        .nav-shifted-container .nav-link:nth-child(4) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 1.6s;
+        }
+          .nav-shifted-container .nav-link:nth-child(5) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 1.6s;
+        }
+            .nav-shifted-container .nav-link:nth-child(6) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 1.6s;
+        }
+            .nav-shifted-container .nav-link:nth-child(7) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 1.6s;
+        }
+
+        /* Dropdown styles */
+        .dropdown-container {
+          position: relative;
+        }
+
+        .dropdown-container:hover .dropdown-menu-custom {
+          display: grid;
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: all;
+        }
+
+        .dropdown-menu-custom {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* 3-column layout */
+          gap: 10px;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          min-width: 400px;
+          background: #f9f9f9;
+          color: #000;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+          z-index: 999;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.3s ease-in-out;
+          pointer-events: none;
+          white-space: nowrap;
+        }
+
+        .dropdown-item-custom {
+          color: #000;
+          text-decoration: none;
+          font-weight: 500;
+          padding: 5px 10px;
+          border-radius: 6px;
+          transition: background 0.3s;
+        }
+
+        .dropdown-item-custom:hover {
+          background-color: #e0f7fa;
+        }
+          .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #ffffff;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.active-link::after {
+  width: 100%;
+  background: #26c4bf;
+}
+
+      `}</style>
+
+      <Navbar
+        expand="lg"
+        className={`navbar-custom py-2 ${scrolled ? 'navbar-fixed' : ''}`}
+      >
+        <Container fluid className="d-flex justify-content-between align-items-center position-relative">
+          <Link to="/" style={{textDecoration:'none'}} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
+            <img src={logo} alt="Logo" height="50" className="me-2" />
+            <span className="fw-bold fs-5" style={{ marginTop: '-5px' }}>
+              GEOCON SERVICES
+            </span>
+          </Link>
+
+          <Nav className={scrolled ? 'nav-shifted-container' : 'nav-initial-container'}>
+            {/* 🌐 Home */}
+            <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Home</NavLink>
+
+            {/* ⚙️ Services with dropdown */}
+            <div className="nav-item dropdown-container">
+              <NavLink
+                to="/services"
+                className={`nav-link ${location.pathname.startsWith('/services') ? 'active-link' : ''}`}
+              >
+                Services
+              </NavLink>
+              <div className="dropdown-menu-custom">
+                {/* 🔽 You can add more services here */}
+                {Array.from({ length: 12 }, (_, i) => (
+                  <NavLink
+                  key={i}
+                  to={`/services/service${i + 1}`}
+                  className="dropdown-item-custom"
+                  >
+                    Service {i + 1}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+                <NavLink to="/instruments" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Instruments</NavLink>
+            {/* 👥 About */}
+            <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>About Us</NavLink>
+
+            {/* ➕ 📝 ADD MORE NAV LINKS BELOW HERE (like Blog, Careers, etc) */}
+             <NavLink to="/project" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Projects</NavLink> 
+           <NavLink to="/client" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Clients</NavLink>
+
+            {/* 📞 Contact */}
+            <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Contact</NavLink>
           </Nav>
-
-          {/* Right side - Message */}
-          <div style={messageStyle}>
-            We Are Environment Friendly...
-          </div>
         </Container>
       </Navbar>
     </>

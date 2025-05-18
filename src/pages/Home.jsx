@@ -1,4 +1,3 @@
-
 import TopBar from "../components/TopBar";
 import NavigationBar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,19 +8,27 @@ import { useEffect } from "react";
 import About from "../components/about";
 import Services from "../components/services";
 
-
-
 const Home = () => {
-    useEffect(() => {
-        AOS.init({ duration: 1000 });
-      }, []);
-    return (
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
+  return (
     <>
-      <TopBar />
-      <NavigationBar />
-      <ImageCarousel/>
-      <About/>
-      <Services/>
+      {/* TopBar - appears above Navbar */}
+      <div style={{ position: 'relative', zIndex: 1030 }}>
+        <TopBar />
+      </div>
+
+      {/* NavigationBar with higher z-index */}
+      <div style={{ position: 'relative', zIndex: 1040 }}>
+        <NavigationBar />
+      </div>
+
+      {/* Main Page Content */}
+      <ImageCarousel />
+      
+      <Services />
       <Footer />
     </>
   );

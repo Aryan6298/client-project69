@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -31,16 +31,27 @@ import portfolio9 from "../assets/gallery02.jpg";
 import portfolio10 from "../assets/gallery01.jpg";
 import portfolio11 from "../assets/about-image.jpg";
 import portfolio12 from "../assets/image03.jpg";
-
-import TopBar from "../components/TopBar.js";
-import NavigationBar from "../components/Navbar"
-import Footer from "../components/Footer.js";
-
+import NavigationBar from "../components/Navbar";
+import Footer from "../components/Footer";
+import TopBar from "../components/TopBar";
 
 const Services = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const [showAllClients, setShowAllClients] = useState(false);
+  const [showAllPortfolio, setShowAllPortfolio] = useState(false);
+
+  const handleShowClients = () => {
+    setShowAllClients(true);
+    setTimeout(() => setShowAllClients(false), 4000);
+  };
+
+  const handleShowPortfolio = () => {
+    setShowAllPortfolio(true);
+    setTimeout(() => setShowAllPortfolio(false), 4000);
+  };
 
   const clientsProjects = [
     { name: "M/s PGP Glass Private Limited", project: "Hydrogeological Investigation, Water Assessment, Impact Assessment Study" },
@@ -75,110 +86,174 @@ const Services = () => {
     height: "120px",
     margin: "0 40px",
     objectFit: "contain",
+    borderRadius: "10px",
     transition: "transform 0.4s ease",
+  };
+
+  const portfolioItemStyle = {
+    width: "300px",
+    margin: "0 30px",
+    textAlign: "center",
+  };
+
+  const imageStyle = {
+    width: "100%",
+    height: "200px",
+    objectFit: "cover",
+    borderRadius: "10px",
+    boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
+    transition: "transform 0.4s ease, box-shadow 0.4s ease",
   };
 
   return (
     <>
-      <TopBar />
-      <NavigationBar/>
-      <div className="container my-5">
-        <style>{`
-          .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1f2a44;
-            text-align: center;
-            margin-bottom: 3rem;
-            animation: fadeInDown 1s ease-in-out;
-          }
+  {/* TopBar - appears above Navbar */}
+      <div style={{ position: 'relative', zIndex: 1030 }}>
+        <TopBar />
+      </div>
 
-          @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
+      {/* NavigationBar with higher z-index */}
+      <div style={{ position: 'relative', zIndex: 1040 }}>
+        <NavigationBar />
+      </div>
 
-          .table-hover tbody tr:hover {
-            background-color: #eaf4ff;
-            transition: background-color 0.3s ease;
-          }
+    <div className="container my-5">
+      <style>{`
 
-          .marquee-logo:hover {
-            transform: scale(1.1);
-          }
+        body {
+          background: linear-gradient(to bottom right, #005c97, #28a745);
+          color: #ffffff;
+        }
+        .section-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: #1f2a44;
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+        .portfolio-caption {
+          margin-top: 10px;
+          font-weight: 600;
+          color: #1f2a44;
+          transition: color 0.3s ease;
+        }
+        .portfolio-image:hover {
+          transform: scale(1.07);
+          box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+        }
+        .portfolio-image {
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .marquee-logo:hover {
+          transform: scale(1.1);
+        }
+        .client-heading {
+          color: #1f2a44;
+          transition: color 0.3s, font-size 0.3s;
+        }
+        .client-heading:hover {
+          color: yellow;
+          font-size: 30px;
+        }
+        .bg-transparent {
+          background-color: transparent !important;
+        }
+        .table thead th,
+        .table tbody td {
+          background-color: transparent !important;
+        }
+      `}</style>
 
-          .portfolio-item img {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-          }
-
-          .portfolio-item:hover img {
-            transform: scale(1.07);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
-          }
-
-          .portfolio-caption {
-            margin-top: 10px;
-            font-weight: 600;
-            color: #1f2a44;
-            transition: color 0.3s ease;
-            text-align: center;
-          }
-
-          .portfolio-item:hover .portfolio-caption {
-            color: #0d6efd;
-          }
-        `}</style>
-
-        <h2 className="section-title" data-aos="fade-down">Clients & Projects</h2>
-
-        <div className="table-responsive mb-5" data-aos="fade-up">
-          <table className="table table-bordered table-hover shadow-sm">
-            <thead className="table-dark">
-              <tr>
-                <th>#</th>
-                <th>Client Name</th>
-                <th>Project Undertaken</th>
-              </tr>
-            </thead>
-            <tbody>
-              {clientsProjects.map((entry, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{entry.name}</td>
-                  <td>{entry.project}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="mb-5" data-aos="fade-up">
-          <h3 className="text-center mb-4" style={{ color: "#1f2a44", fontWeight: "600" }}>Project Portfolio</h3>
-          <div className="row">
-            {portfolioItems.map((item, index) => (
-              <div key={index} className="col-md-4 mb-4 d-flex flex-column align-items-center portfolio-item" data-aos="fade-up" data-aos-delay={index * 100}>
-                <img src={item.image} alt={item.title} className="img-fluid" />
-                <div className="portfolio-caption">{item.title}</div>
-              </div>
+      {/* Clients */}
+      <div
+        className="my-5 py-5 px-3 rounded"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }}
+        data-aos="zoom-in"
+        onClick={handleShowClients}
+      >
+        <h3 className="text-center mb-4 fw-semibold client-heading">
+          Our Clients (Click to Expand)
+        </h3>
+        {showAllClients ? (
+          <div className="d-flex flex-wrap justify-content-center gap-4">
+            {[client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11, client12].map((logo, i) => (
+              <img key={i} src={logo} alt={`Client ${i + 1}`} className="marquee-logo" style={logoStyle} />
             ))}
           </div>
-        </div>
-
-        <div className="my-5 py-5 px-3 rounded" style={{ backgroundColor: "#f0f4f9" }} data-aos="zoom-in">
-          <h3 className="text-center mb-4" style={{ color: "#1f2a44", fontWeight: "600" }}>Trusted By</h3>
-          <Marquee gradient={false} speed={50} pauseOnHover={true}>
+        ) : (
+          <Marquee gradient={false} speed={50} pauseOnHover={false}>
             {[client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11, client12].map((logo, i) => (
               <img key={i} src={logo} alt={`Client ${i + 1}`} className="marquee-logo" style={logoStyle} />
             ))}
           </Marquee>
-        </div>
+        )}
       </div>
-      <Footer/>
+
+      {/* Services Table */}
+      <div className="table-responsive mb-5" data-aos="fade-up">
+        <h3 className="text-center mb-3 client-heading" style={{ fontWeight: "600" }}>
+          Our Services
+        </h3>
+        <table className="table table-bordered table-hover shadow-sm bg-transparent text-white">
+          <thead className="bg-transparent text-light border-bottom">
+            <tr>
+              <th>#</th>
+              <th>Our Services</th>
+            </tr>
+          </thead>
+          <tbody className="bg-transparent">
+            {clientsProjects.map((entry, index) => (
+              <tr key={index} className="bg-transparent">
+                <td>{index + 1}</td>
+                <td>{entry.project}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Portfolio */}
+      <div
+        className="mb-5"
+        data-aos="fade-up"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }}
+        onClick={handleShowPortfolio}
+      >
+        <h3 className="text-center mb-4 client-heading" style={{ fontWeight: "600" }}>
+          Project Portfolio (Click to Expand)
+        </h3>
+        {showAllPortfolio ? (
+          <div className="d-flex flex-wrap justify-content-center gap-4">
+            {portfolioItems.map((item, index) => (
+              <div key={index} style={portfolioItemStyle}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="portfolio-image"
+                  style={imageStyle}
+                />
+                <div className="portfolio-caption">{item.title}</div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Marquee gradient={false} speed={40} pauseOnHover={false} direction="right">
+            {portfolioItems.map((item, index) => (
+              <div key={index} style={portfolioItemStyle}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="portfolio-image"
+                  style={imageStyle}
+                />
+                <div className="portfolio-caption">{item.title}</div>
+              </div>
+            ))}
+          </Marquee>
+        )}
+      </div>
+    </div>
+    <Footer/>
     </>
   );
 };

@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Import client logos
 import client1 from "../assets/ABL.png";
 import client2 from "../assets/Arihant.jpg";
 import client3 from "../assets/Dabur.jpg";
@@ -18,7 +17,6 @@ import client10 from "../assets/PMKSY.jpg";
 import client11 from "../assets/SUF.jpg";
 import client12 from "../assets/ultra-tech-cement.png";
 
-// Sample portfolio images (replace with real ones)
 import portfolio1 from "../assets/gallery05.jpg";
 import portfolio2 from "../assets/gallery06.jpg";
 import portfolio3 from "../assets/gallery07.jpg";
@@ -32,11 +30,40 @@ import portfolio10 from "../assets/gallery01.jpg";
 import portfolio11 from "../assets/about-image.jpg";
 import portfolio12 from "../assets/image03.jpg";
 
-
 const Services = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const [showAllClients, setShowAllClients] = useState(false);
+  const [showAllPortfolio, setShowAllPortfolio] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+  const [videoDismissed, setVideoDismissed] = useState(false);
+
+  const handleShowClients = () => {
+    setShowAllClients(true);
+    setTimeout(() => setShowAllClients(false), 4000);
+  };
+
+  const handleShowPortfolio = () => {
+    setShowAllPortfolio(true);
+    setTimeout(() => setShowAllPortfolio(false), 4000);
+  };
+
+  const handleCloseVideo = () => {
+    setShowVideo(false);
+    setVideoDismissed(true);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400 && !showVideo && !videoDismissed) {
+        setShowVideo(true);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showVideo, videoDismissed]);
 
   const clientsProjects = [
     { name: "M/s PGP Glass Private Limited", project: "Hydrogeological Investigation, Water Assessment, Impact Assessment Study" },
@@ -71,79 +98,136 @@ const Services = () => {
     height: "120px",
     margin: "0 40px",
     objectFit: "contain",
+    borderRadius: "10px",
     transition: "transform 0.4s ease",
+  };
+
+  const portfolioItemStyle = {
+    width: "300px",
+    margin: "0 30px",
+    textAlign: "center",
+  };
+
+  const imageStyle = {
+    width: "100%",
+    height: "200px",
+    objectFit: "cover",
+    borderRadius: "10px",
+    boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
+    transition: "transform 0.4s ease, box-shadow 0.4s ease",
   };
 
   return (
     <div className="container my-5">
       <style>{`
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1f2a44;
-    text-align: center;
-    margin-bottom: 3rem;
-    animation: fadeInDown 1s ease-in-out;
-  }
+        body {
+          background: linear-gradient(to bottom right, #005c97, #28a745);
+          color: #ffffff;
+        }
+        .section-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: #1f2a44;
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+        .portfolio-caption {
+          margin-top: 10px;
+          font-weight: 600;
+          color: #1f2a44;
+          transition: color 0.3s ease;
+        }
+        .portfolio-image:hover {
+          transform: scale(1.07);
+          box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+        }
+        .marquee-logo:hover {
+          transform: scale(1.1);
+        }
+        .client-heading {
+          color: #1f2a44;
+          transition: color 0.3s, font-size 0.3s;
+        }
+        .client-heading:hover {
+          color: yellow;
+          font-size: 30px;
+        }
+        .bg-transparent {
+          background-color: transparent !important;
+        }
+        .table thead th,
+        .table tbody td {
+          background-color: transparent !important;
+        }
+        .floating-video {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          z-index: 9999;
+          width: 320px;
+          height: 180px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+          border-radius: 10px;
+          overflow: hidden;
+          animation: fadeIn 0.5s ease-in-out;
+          background: black;
+        }
+        .close-btn {
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          font-size: 22px;
+          color: white;
+          cursor: pointer;
+          z-index: 10;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
 
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+      {/* Clients */}
+      <div
+        className="my-5 py-5 px-3 rounded"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }}
+        data-aos="zoom-in"
+        onClick={handleShowClients}
+      >
+        <h3 className="text-center mb-4 fw-semibold client-heading">
+          Our Clients (Click to Expand)
+        </h3>
+        {showAllClients ? (
+          <div className="d-flex flex-wrap justify-content-center gap-4">
+            {[client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11, client12].map((logo, i) => (
+              <img key={i} src={logo} alt={`Client ${i + 1}`} className="marquee-logo" style={logoStyle} />
+            ))}
+          </div>
+        ) : (
+          <Marquee gradient={false} speed={50} pauseOnHover={false}>
+            {[client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11, client12].map((logo, i) => (
+              <img key={i} src={logo} alt={`Client ${i + 1}`} className="marquee-logo" style={logoStyle} />
+            ))}
+          </Marquee>
+        )}
+      </div>
 
-  .table-hover tbody tr:hover {
-    background-color: #eaf4ff;
-    transition: background-color 0.3s ease;
-  }
-
-  .marquee-logo:hover {
-    transform: scale(1.1);
-  }
-
-  .portfolio-item img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-
-  .portfolio-item:hover img {
-    transform: scale(1.07);
-    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
-  }
-
-  .portfolio-caption {
-    margin-top: 10px;
-    font-weight: 600;
-    color: #1f2a44;
-    transition: color 0.3s ease;
-    text-align: center;
-  }
-
-  .portfolio-item:hover .portfolio-caption {
-    color: #0d6efd;
-  }
-`}</style>
-
-
-      <h2 className="section-title" data-aos="fade-down">Clients & Projects</h2>
-
+      {/* Services Table */}
       <div className="table-responsive mb-5" data-aos="fade-up">
-        <table className="table table-bordered table-hover shadow-sm">
-          <thead className="table-dark">
+        <h3 className="text-center mb-3 client-heading" style={{ fontWeight: "600" }}>
+          Our Services
+        </h3>
+        <table className="table table-bordered table-hover shadow-sm bg-transparent text-white">
+          <thead className="bg-transparent text-light border-bottom">
             <tr>
               <th>#</th>
-              <th>Client Name</th>
-              <th>Project Undertaken</th>
+              <th>Our Services</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-transparent">
             {clientsProjects.map((entry, index) => (
-              <tr key={index}>
+              <tr key={index} className="bg-transparent">
                 <td>{index + 1}</td>
-                <td>{entry.name}</td>
                 <td>{entry.project}</td>
               </tr>
             ))}
@@ -151,28 +235,62 @@ const Services = () => {
         </table>
       </div>
 
-      {/* Portfolio Section */}
-      <div className="mb-5" data-aos="fade-up">
-        <h3 className="text-center mb-4" style={{ color: "#1f2a44", fontWeight: "600" }}>Project Portfolio</h3>
-        <div className="row">
-          {portfolioItems.map((item, index) => (
-            <div key={index} className="col-md-4 mb-4 d-flex flex-column align-items-center portfolio-item" data-aos="fade-up" data-aos-delay={index * 100}>
-              <img src={item.image} alt={item.title} className="img-fluid" />
-              <div className="portfolio-caption">{item.title}</div>
-            </div>
-          ))}
-        </div>
+      {/* Portfolio */}
+      <div
+        className="mb-5"
+        data-aos="fade-up"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }}
+        onClick={handleShowPortfolio}
+      >
+        <h3 className="text-center mb-4 client-heading" style={{ fontWeight: "600" }}>
+          Project Portfolio (Click to Expand)
+        </h3>
+        {showAllPortfolio ? (
+          <div className="d-flex flex-wrap justify-content-center gap-4">
+            {portfolioItems.map((item, index) => (
+              <div key={index} style={portfolioItemStyle}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="portfolio-image"
+                  style={imageStyle}
+                />
+                <div className="portfolio-caption">{item.title}</div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Marquee gradient={false} speed={40} pauseOnHover={false} direction="right">
+            {portfolioItems.map((item, index) => (
+              <div key={index} style={portfolioItemStyle}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="portfolio-image"
+                  style={imageStyle}
+                />
+                <div className="portfolio-caption">{item.title}</div>
+              </div>
+            ))}
+          </Marquee>
+        )}
       </div>
 
-      {/* Logo Marquee Section */}
-      <div className="my-5 py-5 px-3 rounded" style={{ backgroundColor: "#f0f4f9" }} data-aos="zoom-in">
-        <h3 className="text-center mb-4" style={{ color: "#1f2a44", fontWeight: "600" }}>Trusted By</h3>
-        <Marquee gradient={false} speed={50} pauseOnHover={true}>
-          {[client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11, client12].map((logo, i) => (
-            <img key={i} src={logo} alt={`Client ${i + 1}`} className="marquee-logo" style={logoStyle} />
-          ))}
-        </Marquee>
-      </div>
+      {/* Floating YouTube Video */}
+      {showVideo && (
+        <div className="floating-video">
+          <div className="close-btn" onClick={handleCloseVideo}>×</div>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/DU8DqB1_rRw?autoplay=1&mute=0"
+            title="YouTube video"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        </div>
+      )}
     </div>
   );
 };

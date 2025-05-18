@@ -2,7 +2,7 @@
   "name": "project-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Aryan6298.github.io/my-react-project",
+  "homepage": "https://aryan6298.github.io/client-project69",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -15,6 +15,7 @@
     "react-dom": "^19.1.0",
     "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.5.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

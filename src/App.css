@@ -1,20 +1,37 @@
-.App {
-  text-align: center;
+/* Full-page gradient background */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0e3d59, #1f604b); /* Blue to Green */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
 }
 
+/* Optional App container styling */
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Optional: React logo */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+/* Remove spin unless you still use the React logo */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
+/* Remove old header style, or use for a centered hero */
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,12 +39,21 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background: transparent; /* override default dark background */
 }
 
+/* Link styling */
 .App-link {
-  color: #61dafb;
+  color: #aad8d3;
+  text-decoration: none;
 }
 
+.App-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Keyframes (only needed if using logo animation) */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
