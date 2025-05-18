@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Link } from 'react-router-dom';
 import logo from '../assets/final-main-logo.png';
-import { Link } from 'react-router-dom'; // for routing to homepage
 
 const NavigationBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,30 +36,17 @@ const NavigationBar = () => {
 
         .nav-link {
           color: white !important;
-          margin-left: 1rem;
+          margin: 0 1rem;
           position: relative;
           opacity: 1;
-          transition: transform 1.5s ease, opacity 1.5s ease;
           text-decoration: none !important;
+          white-space: nowrap;
+          transition: transform 1s ease, opacity 1s ease;
         }
 
         .active-link {
           font-weight: bold;
           color: #26c4bf !important;
-        }
-
-        .nav-initial-container {
-          position: absolute;
-          left: 0;
-          display: flex;
-          gap: 1rem;
-        }
-
-        .nav-shifted-container {
-          position: static;
-          margin-left: auto;
-          display: flex;
-          gap: 1rem;
         }
 
         .brand-box {
@@ -88,104 +74,78 @@ const NavigationBar = () => {
         .nav-shifted-container .nav-link:nth-child(1) {
           opacity: 1;
           transform: translateX(0);
-          transition-delay: 0.4s;
+          transition-delay: 0.3s;
         }
         .nav-shifted-container .nav-link:nth-child(2) {
           opacity: 1;
           transform: translateX(0);
-          transition-delay: 0.8s;
+          transition-delay: 0.6s;
         }
         .nav-shifted-container .nav-link:nth-child(3) {
           opacity: 1;
           transform: translateX(0);
-          transition-delay: 1.2s;
+          transition-delay: 0.9s;
         }
         .nav-shifted-container .nav-link:nth-child(4) {
           opacity: 1;
           transform: translateX(0);
-          transition-delay: 1.6s;
+          transition-delay: 1.2s;
         }
-          .nav-shifted-container .nav-link:nth-child(5) {
+        .nav-shifted-container .nav-link:nth-child(5),
+        .nav-shifted-container .nav-link:nth-child(6),
+        .nav-shifted-container .nav-link:nth-child(7) {
           opacity: 1;
           transform: translateX(0);
-          transition-delay: 1.6s;
-        }
-            .nav-shifted-container .nav-link:nth-child(6) {
-          opacity: 1;
-          transform: translateX(0);
-          transition-delay: 1.6s;
-        }
-            .nav-shifted-container .nav-link:nth-child(7) {
-          opacity: 1;
-          transform: translateX(0);
-          transition-delay: 1.6s;
+          transition-delay: 1.5s;
         }
 
-        /* Dropdown styles */
-        .dropdown-container {
-          position: relative;
-        }
-
-        .dropdown-container:hover .dropdown-menu-custom {
-          display: grid;
-          opacity: 1;
-          transform: translateY(0);
-          pointer-events: all;
-        }
-
-        .dropdown-menu-custom {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr); /* 3-column layout */
-          gap: 10px;
+        .nav-link::after {
+          content: "";
           position: absolute;
-          top: 100%;
+          width: 0%;
+          height: 2px;
+          bottom: -4px;
           left: 0;
-          min-width: 400px;
-          background: #f9f9f9;
-          color: #000;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-          z-index: 999;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: all 0.3s ease-in-out;
-          pointer-events: none;
-          white-space: nowrap;
+          background: #ffffff;
+          transition: width 0.3s ease-in-out;
         }
 
-        .dropdown-item-custom {
-          color: #000;
-          text-decoration: none;
-          font-weight: 500;
-          padding: 5px 10px;
-          border-radius: 6px;
-          transition: background 0.3s;
+        .nav-link:hover::after {
+          width: 100%;
         }
 
-        .dropdown-item-custom:hover {
-          background-color: #e0f7fa;
+        .active-link::after {
+          width: 100%;
+          background: #26c4bf;
         }
-          .nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background: #ffffff;
-  transition: width 0.3s ease-in-out;
-}
 
-.nav-link:hover::after {
-  width: 100%;
-}
+        /* Responsive Fix */
+        @media (max-width: 991px) {
+          .navbar-collapse {
+            overflow-x: auto;
+            max-width: 100%;
+          }
 
-.active-link::after {
-  width: 100%;
-  background: #26c4bf;
-}
+          .navbar-collapse .nav {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+          }
 
+          .nav-link {
+            margin: 0 0.5rem;
+            font-size: 14px;
+            flex-shrink: 0;
+          }
+
+          /* Hide scroll bar for better look */
+          .navbar-collapse .nav::-webkit-scrollbar {
+            display: none;
+          }
+        }
       `}</style>
 
       <Navbar
@@ -193,50 +153,25 @@ const NavigationBar = () => {
         className={`navbar-custom py-2 ${scrolled ? 'navbar-fixed' : ''}`}
       >
         <Container fluid className="d-flex justify-content-between align-items-center position-relative">
-          <Link to="/" style={{textDecoration:'none'}} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
+          <Link to="/" style={{ textDecoration: 'none' }} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
             <img src={logo} alt="Logo" height="50" className="me-2" />
             <span className="fw-bold fs-5" style={{ marginTop: '-5px' }}>
               GEOCON SERVICES
             </span>
           </Link>
 
-          <Nav className={scrolled ? 'nav-shifted-container' : 'nav-initial-container'}>
-            {/* 🌐 Home */}
-            <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Home</NavLink>
-
-            {/* ⚙️ Services with dropdown */}
-            <div className="nav-item dropdown-container">
-              <NavLink
-                to="/services"
-                className={`nav-link ${location.pathname.startsWith('/services') ? 'active-link' : ''}`}
-              >
-                Services
-              </NavLink>
-              <div className="dropdown-menu-custom">
-                {/* 🔽 You can add more services here */}
-                {Array.from({ length: 12 }, (_, i) => (
-                  <NavLink
-                  key={i}
-                  to={`/services/service${i + 1}`}
-                  className="dropdown-item-custom"
-                  >
-                    Service {i + 1}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-
-                <NavLink to="/instruments" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Instruments</NavLink>
-            {/* 👥 About */}
-            <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>About Us</NavLink>
-
-            {/* ➕ 📝 ADD MORE NAV LINKS BELOW HERE (like Blog, Careers, etc) */}
-             <NavLink to="/project" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Projects</NavLink> 
-           <NavLink to="/client" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Clients</NavLink>
-
-            {/* 📞 Contact */}
-            <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Contact</NavLink>
-          </Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className={`nav-shifted-container`}>
+              <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Home</NavLink>
+              <NavLink to="/services" className={`nav-link ${location.pathname.startsWith('/services') ? 'active-link' : ''}`}>Services</NavLink>
+              <NavLink to="/instruments" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Instruments</NavLink>
+              <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>About Us</NavLink>
+              <NavLink to="/project" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Projects</NavLink>
+              <NavLink to="/client" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Clients</NavLink>
+              <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Contact</NavLink>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
