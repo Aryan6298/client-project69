@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import aboutImg1 from '../assets/image01.png';
-import aboutImg2 from '../assets/image02.png';
+import aboutImg2 from '../assets/image04.jpeg';
 import aboutImg3 from '../assets/about-image.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../components/Footer';
@@ -46,10 +46,7 @@ const About = () => {
 
       <style>
         {`
-          body {
-            background: linear-gradient(to bottom right, #005c97, #28a745);
-            color: #ffffff;
-          }
+         
 
           .pop-hover {
             transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
@@ -192,7 +189,7 @@ const About = () => {
             src="https://www.youtube.com/embed/DU8DqB1_rRw?autoplay=1&mute=0"
             title="YouTube video"
             frameBorder="0"
-            allow="autoplay; encrypted-media"
+            allow=" encrypted-media"
             allowFullScreen
           />
         </div>

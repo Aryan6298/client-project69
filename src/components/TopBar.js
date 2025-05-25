@@ -6,14 +6,14 @@ import logo from '../../src/assets/final-main-logo.png';
 
 const TopBar = () => {
   return (
-    <div className="bg-light py-2 border-bottom">
+    <div className=" py-2 border-bottom" style={{background:'white'}}>
       <Container>
         <Row className="align-items-center text-center text-md-start">
           <Col md={6} style={{ display: 'flex', alignItems: 'center' }}>
             <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
               <img src={logo} alt="Logo" style={{ height: '60px', marginTop: '5px' }} />
               <div className="ms-2" style={{ display: 'flex', flexDirection: 'column' }}>
-                <span className="fw-bold fs-3" style={{ color: '#1f604b' }}>
+                <span className="fw-bold fs-3" style={{ color: '#0D5D5B' }}>
                   GEOCON SERVICES
                 </span>
                 <span style={{ color: '#1f604b', fontSize: '0.9rem', marginTop: '-5px' }}>
@@ -48,7 +48,7 @@ const TopBar = () => {
           }
 
           .topbar-link:hover {
-            color: #1f604b;
+            color: green;
             text-decoration: underline;
           }
         `}

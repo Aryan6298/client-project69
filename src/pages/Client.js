@@ -44,10 +44,7 @@ const Clients = () => {
       </div>
 
       <style>{`
-        body {
-          background: linear-gradient(to bottom right, #005c97, #28a745);
-          color: #ffffff;
-        }
+       
         .client-heading {
           color: #ffffff;
           text-align: center;

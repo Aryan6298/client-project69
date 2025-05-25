@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
-import 'aos/dist/aos.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "aos/dist/aos.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 import client1 from "../assets/ABL.png";
 import client2 from "../assets/Arihant.jpg";
@@ -17,18 +18,24 @@ import client10 from "../assets/PMKSY.jpg";
 import client11 from "../assets/SUF.jpg";
 import client12 from "../assets/ultra-tech-cement.png";
 
-import portfolio1 from "../assets/gallery05.jpg";
-import portfolio2 from "../assets/gallery06.jpg";
-import portfolio3 from "../assets/gallery07.jpg";
-import portfolio4 from "../assets/gallery08.jpg";
-import portfolio5 from "../assets/gallery09.jpg";
-import portfolio6 from "../assets/gallery10.jpg";
-import portfolio7 from "../assets/gallery04.jpg";
-import portfolio8 from "../assets/gallery03.jpg";
-import portfolio9 from "../assets/gallery02.jpg";
-import portfolio10 from "../assets/gallery01.jpg";
-import portfolio11 from "../assets/about-image.jpg";
-import portfolio12 from "../assets/image03.jpg";
+import portfolio1 from "../assets/services/port-img01.jpg";
+import portfolio2 from "../assets/services/port-img02.jpg";
+import portfolio3 from "../assets/services/port-img03.jpg";
+import portfolio4 from "../assets/services/port-img04.jpg";
+import portfolio5 from "../assets/services/port-img05.jpg";
+import portfolio6 from "../assets/services/port-img06.jpeg";
+import portfolio7 from "../assets/services/port-img07.jpg";
+import portfolio8 from "../assets/services/port-img08.jpg";
+import portfolio9 from "../assets/services/port-img09.jpg";
+import portfolio10 from "../assets/services/port-img10.jpg";
+import portfolio11 from "../assets/services/port-img11.jpg";
+import portfolio12 from "../assets/services/port-img12.jpg";
+import portfolio13 from "../assets/services/port-img13.jpg";
+import portfolio14 from "../assets/services/port-img14.jpg";
+import portfolio15 from "../assets/services/port-img15.jpg";
+import portfolio16 from "../assets/services/port-img16.jpg";
+import portfolio17 from "../assets/services/port-img17.jpg";
+import portfolio18 from "../assets/services/port-img18.jpg";
 
 const Services = () => {
   useEffect(() => {
@@ -66,98 +73,112 @@ const Services = () => {
   }, [showVideo, videoDismissed]);
 
   const clientsProjects = [
-    { name: "M/s PGP Glass Private Limited", project: "Hydrogeological Investigation, Water Assessment, Impact Assessment Study" },
-    { name: "M/s Ultratech Cement Unit Dhar", project: "Rain Water Harvesting, Piezometer, Recharge Calculation and Study" },
-    { name: "M/s Agro Solvent Product Pvt. Ltd", project: "Impact Assessment Study and Water Audit" },
-    { name: "M/s Sun Nutra Foods", project: "Impact Assessment Study and Hydrogeological Investigation for Water Awards" },
-    { name: "M/s Hindustan Unilever Limited", project: "Geophysical Investigation, Aquifer Geometry, Aquifer Performance Test, Soil Testing and Percolation Test" },
-    { name: "Oil (Confederation of Indian Industries)", project: "Geophysical Survey at Jawaharlal Nehru Research Institute" },
-    { name: "Megha Engineering & Infrastructures Limited", project: "Geophysical and Recharge Structure in Jihadibaroda Village" },
-    { name: "Dabur India Limited", project: "CGWA NOC" },
-    { name: "IMA-PG India Pvt. Ltd.", project: "Rain Water Harvesting" },
-    { name: "Meil", project: "Geophysical Survey" },
-    { name: "Indore Municipal Corporation", project: "Geophysical Survey" }
+    "Hydrogeological Investigation and Impact Assessment",
+    "Rainwater Harvesting and Ground Water Recharging (Study, Installation, and Pits Construction)",
+    "Environmental and Water Impact Assessment and Audit",
+    "Aquifer and Well Hydraulic Testing and Geophysical Survey for Water Resource Assessment (Including Electromagnetic and Groundwater Surveys)",
+    "Ground Survey",
+    "Recharge Structure Design and Construction (Including Recharge Shaft)",
+    "Groundwater NOC Compliance and Consultancy",
+    "Water Body Regeneration (Ponds and Bawadi Repairing and Cleaning)",
+    "DWLR, Flow Meter Supply, Installation, and Remote Display, and Water Level Recording",
+    "Borewell Site Selection",
+    "Drilling, Borehole Logging, and Litholog Preparation",
+    "GIS & GPS Survey",
+    "Water Quality Analysis",
+    "Mining Plans",
+    "Percolation and Soil Infiltration Testing",
+    "ERT Earth Resistance Testing Service",
+    "Stainless Steel Wire Screen Tubewell Filter Service",
+    "Soil Resistivity Testing Service"
   ];
 
-  const portfolioItems = [
-    { image: portfolio1, title: "Rainwater Harvesting System" },
-    { image: portfolio2, title: "Geophysical Survey at JNRI" },
-    { image: portfolio3, title: "Aquifer Recharge Structure" },
-    { image: portfolio4, title: "Aquifer Recharge Structure" },
-    { image: portfolio5, title: "Aquifer Recharge Structure" },
-    { image: portfolio6, title: "Aquifer Recharge Structure" },
-    { image: portfolio7, title: "Aquifer Recharge Structure" },
-    { image: portfolio8, title: "Aquifer Recharge Structure" },
-    { image: portfolio9, title: "Aquifer Recharge Structure" },
-    { image: portfolio10, title: "Aquifer Recharge Structure" },
-    { image: portfolio11, title: "Aquifer Recharge Structure" },
-    { image: portfolio12, title: "Aquifer Recharge Structure" },
-  ];
+ const portfolioItems = [
+  { image: portfolio1, title: "Resistivity Survey" },
+  { image: portfolio2, title: "Electromagnetic Survey for Ground Water" },
+  { image: portfolio3, title: "Lithological 3D Modeling" },
+  { image: portfolio4, title: "Hydrogeological Study" },
+  { image: portfolio5, title: "ETP and STO Works" },
+  { image: portfolio6, title: "Resistivity Survey" },
+  { image: portfolio7, title: "Geoelectrical Resistivity Cross Section" },
+  { image: portfolio8, title: "Geophysical Investigation Service" },
+  { image: portfolio9, title: "Groundwater Survey Services" },
+  { image: portfolio10, title: "Ground Water Recharging Construction Service" },
+  { image: portfolio11, title: "Survey Through Drone" },
+  { image: portfolio12, title: "Borewell Construction Service" },
+  { image: portfolio13, title: "Roof Water Rain Water Harvesting" },
+  { image: portfolio14, title: "Aquifer Recharge Structure" },
+  { image: portfolio15, title: "Survey Through Drone" },
+  { image: portfolio16, title: "Groundwater Level Monitoring Surveys" },
+  { image: portfolio17, title: "Geophysical Survey at JNRI" },
+  { image: portfolio18, title: "Groundwater Monitoring Survey" }
+];
+
 
   const logoStyle = {
-    height: "120px",
-    margin: "0 40px",
+    height: "110px",
+    margin: "0 30px",
     objectFit: "contain",
-    borderRadius: "10px",
-    transition: "transform 0.4s ease",
+    borderRadius: "15px",
+    transition: "transform 0.5s ease",
+    boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
   };
 
   const portfolioItemStyle = {
-    width: "300px",
-    margin: "0 30px",
+    width: "280px",
+    margin: "0 20px",
     textAlign: "center",
+    transition: "transform 0.4s ease"
   };
 
   const imageStyle = {
     width: "100%",
-    height: "200px",
+    height: "180px",
     objectFit: "cover",
-    borderRadius: "10px",
-    boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
-    transition: "transform 0.4s ease, box-shadow 0.4s ease",
+    borderRadius: "12px",
+    boxShadow: "0 6px 25px rgba(0,0,0,0.2)",
+    transition: "transform 0.4s ease, box-shadow 0.4s ease"
   };
+
+  const portfolioRows = [
+    portfolioItems.slice(0, Math.ceil(portfolioItems.length / 2)),
+    portfolioItems.slice(Math.ceil(portfolioItems.length / 2))
+  ];
 
   return (
     <div className="container my-5">
       <style>{`
-        body {
-          background: linear-gradient(to bottom right, #005c97, #28a745);
-          color: #ffffff;
-        }
-        .section-title {
-          font-size: 2.5rem;
+        .client-heading {
+          font-size: 2.6rem;
           font-weight: 700;
-          color: #1f2a44;
+          color: #ffffff;
           text-align: center;
           margin-bottom: 3rem;
+          text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+          transition: all 0.4s ease;
+        }
+        .client-heading:hover {
+          color: #ffeb3b;
+          font-size: 2.8rem;
         }
         .portfolio-caption {
           margin-top: 10px;
           font-weight: 600;
-          color: #1f2a44;
+          color: #d4edda;
           transition: color 0.3s ease;
         }
         .portfolio-image:hover {
-          transform: scale(1.07);
-          box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+          transform: scale(1.08);
+          box-shadow: 0 10px 35px rgba(0,0,0,0.4);
         }
         .marquee-logo:hover {
-          transform: scale(1.1);
-        }
-        .client-heading {
-          color: #1f2a44;
-          transition: color 0.3s, font-size 0.3s;
-        }
-        .client-heading:hover {
-          color: yellow;
-          font-size: 30px;
-        }
-        .bg-transparent {
-          background-color: transparent !important;
+          transform: scale(1.12);
+          filter: brightness(1.1);
         }
         .table thead th,
         .table tbody td {
-          background-color: transparent !important;
+          background-color: rgba(255, 255, 255, 0.05) !important;
+          color: black !important;
         }
         .floating-video {
           position: fixed;
@@ -187,16 +208,9 @@ const Services = () => {
         }
       `}</style>
 
-      {/* Clients */}
-      <div
-        className="my-5 py-5 px-3 rounded"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }}
-        data-aos="zoom-in"
-        onClick={handleShowClients}
-      >
-        <h3 className="text-center mb-4 fw-semibold client-heading">
-          Our Clients (Click to Expand)
-        </h3>
+      {/* Clients Section */}
+      <div className="my-5 py-5 px-3 rounded" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }} data-aos="zoom-in" onClick={handleShowClients}>
+        <h3 className="client-heading">Our Clients (Click to Expand)</h3>
         {showAllClients ? (
           <div className="d-flex flex-wrap justify-content-center gap-4">
             {[client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11, client12].map((logo, i) => (
@@ -204,7 +218,7 @@ const Services = () => {
             ))}
           </div>
         ) : (
-          <Marquee gradient={false} speed={50} pauseOnHover={false}>
+          <Marquee gradient={false} speed={50}>
             {[client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11, client12].map((logo, i) => (
               <img key={i} src={logo} alt={`Client ${i + 1}`} className="marquee-logo" style={logoStyle} />
             ))}
@@ -214,65 +228,59 @@ const Services = () => {
 
       {/* Services Table */}
       <div className="table-responsive mb-5" data-aos="fade-up">
-        <h3 className="text-center mb-3 client-heading" style={{ fontWeight: "600" }}>
-          Our Services
-        </h3>
-        <table className="table table-bordered table-hover shadow-sm bg-transparent text-white">
-          <thead className="bg-transparent text-light border-bottom">
-            <tr>
-              <th>#</th>
-              <th>Our Services</th>
-            </tr>
-          </thead>
-          <tbody className="bg-transparent">
-            {clientsProjects.map((entry, index) => (
-              <tr key={index} className="bg-transparent">
-                <td>{index + 1}</td>
-                <td>{entry.project}</td>
+        <h3 className="client-heading">Our Services</h3>
+        <table className="table table-bordered table-hover shadow-sm" style={{ backgroundColor: 'rgba(255, 255, 255, 0.85)', borderColor: 'black' }}>
+          <tbody>
+            {Array.from({ length: Math.ceil(clientsProjects.length / 3) }).map((_, rowIndex) => (
+              <tr key={rowIndex}>
+                {[0, 1, 2].map(colIndex => {
+                  const totalRows = Math.ceil(clientsProjects.length / 3);
+                  const index = colIndex * totalRows + rowIndex;
+                  return (
+                    <td key={colIndex}>
+                      {clientsProjects[index] ? (
+                        <>
+                          <strong>{index + 1}.</strong> {clientsProjects[index]}
+                        </>
+                      ) : null}
+                    </td>
+                  );
+                })}
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* Portfolio */}
-      <div
-        className="mb-5"
-        data-aos="fade-up"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }}
-        onClick={handleShowPortfolio}
-      >
-        <h3 className="text-center mb-4 client-heading" style={{ fontWeight: "600" }}>
-          Project Portfolio (Click to Expand)
-        </h3>
+      {/* Portfolio Section */}
+      <div className="mb-5" data-aos="fade-up" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }} onClick={handleShowPortfolio}>
+        <h3 className="client-heading">Project Portfolio (Click to Expand)</h3>
         {showAllPortfolio ? (
           <div className="d-flex flex-wrap justify-content-center gap-4">
             {portfolioItems.map((item, index) => (
               <div key={index} style={portfolioItemStyle}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="portfolio-image"
-                  style={imageStyle}
-                />
-                <div className="portfolio-caption">{item.title}</div>
+                <Link to={`/portfolio/${index + 1}`}>
+                  <img src={item.image} alt={`Portfolio ${index + 1}`} className="portfolio-image" style={imageStyle} />
+                </Link>
+                <div className="portfolio-caption">{index + 1}. {item.title}</div>
               </div>
             ))}
           </div>
         ) : (
-          <Marquee gradient={false} speed={40} pauseOnHover={false} direction="right">
-            {portfolioItems.map((item, index) => (
-              <div key={index} style={portfolioItemStyle}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="portfolio-image"
-                  style={imageStyle}
-                />
-                <div className="portfolio-caption">{item.title}</div>
-              </div>
+          <>
+            {portfolioRows.map((row, rowIndex) => (
+              <Marquee key={rowIndex} gradient={false} speed={40} direction={rowIndex % 2 === 0 ? "right" : "left"}>
+                {row.map((item, index) => (
+                  <div key={index} style={portfolioItemStyle}>
+                    <Link to={`/portfolio/${index + 1 + rowIndex * Math.ceil(portfolioItems.length / 2)}`}>
+                      <img src={item.image} alt={`Portfolio ${index + 1}`} className="portfolio-image" style={imageStyle} />
+                    </Link>
+                    <div className="portfolio-caption">{index + 1 + rowIndex * Math.ceil(portfolioItems.length / 2)}. {item.title}</div>
+                  </div>
+                ))}
+              </Marquee>
             ))}
-          </Marquee>
+          </>
         )}
       </div>
 
@@ -286,7 +294,7 @@ const Services = () => {
             src="https://www.youtube.com/embed/DU8DqB1_rRw?autoplay=1&mute=0"
             title="YouTube video"
             frameBorder="0"
-            allow="autoplay; encrypted-media"
+            allow="encrypted-media"
             allowFullScreen
           />
         </div>

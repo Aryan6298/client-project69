@@ -26,12 +26,7 @@ const ContactPage = () => {
 
       {/* Custom styles */}
       <style>{`
-        body {
-          background: linear-gradient(to bottom right, #005c97, #28a745);
-          margin: 0;
-          font-family: 'Segoe UI', sans-serif;
-        }
-
+     
         .main-heading {
           font-size: 2.8rem;
           font-weight: bold;

@@ -1,15 +1,4 @@
-/* Full-page gradient background */
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0e3d59, #1f604b); /* Blue to Green */
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-}
+
 
 /* Optional App container styling */
 .App {

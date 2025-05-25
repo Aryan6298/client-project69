@@ -19,7 +19,7 @@ const NavigationBar = () => {
     <>
       <style>{`
         .navbar-custom {
-          background: #0e3d59;
+          background: #1C1F2A;
           transition: all 0.5s ease;
           z-index: 1040;
           position: absolute;
@@ -77,7 +77,7 @@ const NavigationBar = () => {
         }
 
         .brand-box span {
-          color: #26c4bf !important;
+          color: #0D5D5B  !important;
         }
 
         .nav-shifted-container .nav-link {
@@ -197,10 +197,12 @@ const NavigationBar = () => {
       >
         <Container fluid className="d-flex justify-content-between align-items-center position-relative">
           <Link to="/" style={{ textDecoration: 'none' }} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
-            <img src={logo} alt="Logo" height="50" className="me-2" />
-            <span className="fw-bold fs-5" style={{ marginTop: '-5px' }}>
-              GEOCON SERVICES
-            </span>
+            <img src={logo} alt="Logo" height="50" className="me-2" style={{marginTop: '5px'}} />
+            <span className="fw-bold fs-3" style={{ marginTop: '-5px',marginLeft:'5px'}}>
+  GEOCON SERVICES
+</span>
+
+
           </Link>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
@@ -214,7 +216,8 @@ const NavigationBar = () => {
                   to="/services"
                   className={`nav-link ${location.pathname.startsWith('/services') ? 'active-link' : ''}`}
                 >
-                  Services
+                  Services ⯆
+
                 </NavLink>
                 <div className="dropdown-menu-custom">
                   {Array.from({ length: 12 }, (_, i) => (

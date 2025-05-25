@@ -12,6 +12,7 @@ import Clients from "./pages/Client";
 import Projects from "./pages/Projects";
 import TermsOfService from "./pages/TermsOfServices";
 import Instruments from "./pages/Instruments";
+import PortfolioDetails from "./pages/PortfolioDetails"; // ✅ NEW IMPORT
 
 const App = () => {
   return (
@@ -23,11 +24,12 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/contact" element={<Contact />} />
-         <Route path="/project" element={<Projects />} />
-         <Route path="/instruments" element={<Instruments />} />
-          <Route path="/termsofservices" element={<TermsOfService />} />
-         <Route path="/client" element={<Clients />} />
-         <Route path="*" element={<NotFound />} />
+        <Route path="/project" element={<Projects />} />
+        <Route path="/instruments" element={<Instruments />} />
+        <Route path="/termsofservices" element={<TermsOfService />} />
+        <Route path="/client" element={<Clients />} />
+        <Route path="/portfolio/:id?" element={<PortfolioDetails />} /> {/* ✅ New Portfolio Route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

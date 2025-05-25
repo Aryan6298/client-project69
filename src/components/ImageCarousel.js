@@ -3,94 +3,115 @@ import { Carousel } from 'react-bootstrap';
 import img01 from '../assets/image01.png';
 import img02 from '../assets/about-image.jpg';
 import img03 from '../assets/image03.jpg';
-import img04 from '../assets/image04.jpg';
+import img04 from '../assets/image04.jpeg';
+import img05 from '../assets/gallery08.jpg';
+import img06 from '../assets/gallery10.jpg';
+import img07 from '../assets/image07.jpg';
+import img08 from '../assets/image08.jpg';
+import img09 from '../assets/image09.jpg';
+import img10 from '../assets/image10.jpg';
+import img11 from '../assets/image11.jpg';
+import img12 from '../assets/image04.jpeg';
+
+
+const baseImages = [
+  { src: img01, heading: 'Save Water, Save Earth' },
+  { src: img02, heading: 'Go Green, Live Clean' },
+  { src: img03, heading: 'Protect Our Planet' },
+  { src: img04, heading: 'Every Drop Matters' },
+  { src: img05, heading: 'Think Green' },
+  { src: img06, heading: 'Reduce, Reuse, Recycle' },
+  { src: img07, heading: 'Be the Change' },
+  { src: img08, heading: 'Love the Earth' },
+  { src: img09, heading: 'Green Is the New Black' },
+  { src: img10, heading: 'Act for Nature' },
+  { src: img11, heading: 'Small Acts, Big Impact' },
+  { src: img12, heading: 'Clean Water, Bright Future' },
+];
+
+
+// Create 12 slides using 4 base images
+const allSlides = Array.from({ length: 12 }, (_, i) => ({
+  ...baseImages[i % baseImages.length],
+  key: i,
+}));
+
+// Group into chunks of 3
+const groupedSlides = [];
+for (let i = 0; i < allSlides.length; i += 3) {
+  groupedSlides.push(allSlides.slice(i, i + 3));
+}
 
 const ImageCarousel = () => {
-  const slides = [
-    {
-      src: img01,
-      heading: 'Saving Water, Saving Life',
-      animation: 'fadeSlide',
-    },
-    {
-      src: img02,
-      heading: 'Eco-Friendly Solutions',
-      animation: 'zoomIn',
-    },
-    {
-      src: img03,
-      heading: 'Nature Needs Your Help',
-      animation: 'slideRight',
-    },
-    {
-      src: img04,
-      heading: 'Every Drop Counts',
-      animation: 'rotateIn',
-    },
-  ];
-
   return (
     <>
-      <style>
-        {`
-          @keyframes fadeSlide {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+      <style>{`
+        .carousel-item {
+          padding: 0;
+        }
+
+        .image-group {
+          display: flex;
+        }
+
+        .image-wrapper {
+          position: relative;
+          flex: 1;
+          overflow: hidden;
+          border-right: 1px solid #fff;
+        }
+
+        .image-wrapper:last-child {
+          border-right: none;
+        }
+
+        .image-wrapper img {
+          width: 100%;
+          height: 90vh;
+          object-fit: cover;
+          filter: brightness(0.7);
+        }
+
+        .image-caption {
+          position: absolute;
+          bottom: 5%;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #fff;
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+          animation: fadeInUp 1s ease;
+          white-space: nowrap;
+        }
+
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translate(-50%, 30px); }
+          to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+        @media (max-width: 768px) {
+          .image-wrapper {
+            flex: 1 0 100%;
+            border-right: none;
           }
-
-          @keyframes zoomIn {
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
+          .image-group {
+            flex-direction: column;
           }
+        }
+      `}</style>
 
-          @keyframes slideRight {
-            0% { opacity: 0; transform: translateX(-100px); }
-            100% { opacity: 1; transform: translateX(0); }
-          }
-
-          @keyframes rotateIn {
-            0% { opacity: 0; transform: rotate(-10deg) scale(0.9); }
-            100% { opacity: 1; transform: rotate(0deg) scale(1); }
-          }
-
-          .carousel-caption {
-            bottom: 20%;
-          }
-
-          .carousel-item img {
-            height: 90vh;
-            object-fit: cover;
-            filter: brightness(0.6);
-          }
-
-          .animated-heading {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #ffffff;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-          }
-
-          .fadeSlide { animation: fadeSlide 1.5s ease-out; }
-          .zoomIn { animation: zoomIn 1.5s ease-out; }
-          .slideRight { animation: slideRight 1.5s ease-out; }
-          .rotateIn { animation: rotateIn 1.5s ease-out; }
-        `}
-      </style>
-
-      <Carousel fade interval={4000} pause={false} ride="carousel">
-
-        {slides.map((slide, index) => (
-          <Carousel.Item key={index}>
-            <img
-              className="d-block w-100"
-              src={slide.src}
-              alt={`Slide ${index + 1}`}
-            />
-            <Carousel.Caption>
-              <h2 className={`animated-heading ${slide.animation}`}>
-                {slide.heading}
-              </h2>
-            </Carousel.Caption>
+      <Carousel interval={4000} fade pause={false}>
+        {groupedSlides.map((group, idx) => (
+          <Carousel.Item key={idx}>
+            <div className="image-group">
+              {group.map((slide) => (
+                <div className="image-wrapper" key={slide.key}>
+                  <img src={slide.src} alt={slide.heading} />
+                  <div className="image-caption">{slide.heading}</div>
+                </div>
+              ))}
+            </div>
           </Carousel.Item>
         ))}
       </Carousel>
