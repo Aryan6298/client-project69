@@ -296,17 +296,13 @@ const Services = () => {
         )}
       </div>
 
-      {/* Floating YouTube Video */}
-      {showVideo && (
+         {showVideo && (
         <div className="floating-video">
           <div className="close-btn" onClick={handleCloseVideo}>×</div>
           <iframe
-            width="100%"
-            height="100%"
             src="https://www.youtube.com/embed/DU8DqB1_rRw?autoplay=1&mute=0"
             title="YouTube video"
-            frameBorder="0"
-            allow="encrypted-media"
+            allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         </div>

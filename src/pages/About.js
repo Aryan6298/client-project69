@@ -46,8 +46,6 @@ const About = () => {
 
       <style>
         {`
-         
-
           .pop-hover {
             transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
             filter: brightness(0.92) contrast(0.95);
@@ -102,18 +100,27 @@ const About = () => {
             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
           }
 
+          /* Responsive Floating Video */
           .floating-video {
             position: fixed;
-            bottom: 80px;
-            right: 20px;
+            bottom: 16vh;
+            right: 2vw;
             z-index: 9999;
-            width: 320px;
-            height: 180px;
+            width: 10%;
+            max-width: 320px;
+            aspect-ratio: 16 / 9;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             border-radius: 10px;
             overflow: hidden;
             animation: fadeIn 0.5s ease-in-out;
             background: black;
+          }
+
+          .floating-video iframe {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: none;
           }
 
           .close-btn {
@@ -124,16 +131,38 @@ const About = () => {
             color: white;
             cursor: pointer;
             z-index: 10;
+            user-select: none;
+            transition: color 0.3s ease;
+          }
+
+          .close-btn:hover {
+            color: #ffc107;
           }
 
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
           }
+
+          @media (max-width: 768px) {
+            .floating-video {
+              width: 60vw;
+              right: 8vw;
+              bottom: 12vh;
+            }
+          }
+
+          @media (max-width: 400px) {
+            .floating-video {
+              width: 40vw;
+              right: 5vw;
+              bottom: 10vh;
+            }
+          }
         `}
       </style>
 
-      <div className="container py-5 mt-4">
+      <div className="container py-5 mt-4" style={{width:'100%'}}>
         <h2 className="about-heading">About Us</h2>
 
         {/* Section 1 */}
@@ -178,24 +207,13 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* Floating YouTube Video */}
-      {showVideo && (
-        <div className="floating-video">
-          <div className="close-btn" onClick={handleCloseVideo}>×</div>
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/DU8DqB1_rRw?autoplay=1&mute=0"
-            title="YouTube video"
-            frameBorder="0"
-            allow=" encrypted-media"
-            allowFullScreen
-          />
-        </div>
-      )}
-
+          {/* Floating YouTube Video */}
+  
+  
       <Footer />
+
+ 
+
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink, useLocation, Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import logo from '../assets/final-main-logo.png';
 
 const NavigationBar = () => {
@@ -77,7 +78,7 @@ const NavigationBar = () => {
         }
 
         .brand-box span {
-          color: #0D5D5B  !important;
+          color: white  !important;
         }
 
         .nav-shifted-container .nav-link {
@@ -166,13 +167,12 @@ const NavigationBar = () => {
             padding: 0.5rem 1rem;
           }
 
-         .nav-shifted-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
-
+          .nav-shifted-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+          }
 
           .nav-shifted-container .nav-link {
             opacity: 1 !important;
@@ -197,12 +197,10 @@ const NavigationBar = () => {
       >
         <Container fluid className="d-flex justify-content-between align-items-center position-relative">
           <Link to="/" style={{ textDecoration: 'none' }} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
-            <img src={logo} alt="Logo" height="50" className="me-2" style={{marginTop: '5px'}} />
-            <span className="fw-bold fs-3" style={{ marginTop: '-5px',marginLeft:'5px'}}>
-  GEOCON SERVICES
-</span>
-
-
+            <img src={logo} alt="Logo" height="50" className="me-2" style={{ marginTop: '5px' }} />
+            <span className="fw-bold fs-3" style={{ marginTop: '-5px', marginLeft: '5px' }}>
+              GEOCON SERVICES
+            </span>
           </Link>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
@@ -217,14 +215,20 @@ const NavigationBar = () => {
                   className={`nav-link ${location.pathname.startsWith('/services') ? 'active-link' : ''}`}
                 >
                   Services ⯆
-
                 </NavLink>
-                <div className="dropdown-menu-custom">
-                  {Array.from({ length: 12 }, (_, i) => (
-                    <NavLink key={i} to={`/services/service${i + 1}`} className="dropdown-item-custom">
-                      Service {i + 1}
-                    </NavLink>
-                  ))}
+                <div className="dropdown-menu-custom" style={{ marginLeft: '-60px', marginTop: '5px' }}>
+                  <HashLink smooth to="/portfolio#Resistivity-Surveys" className="dropdown-item-custom">Resistivity Surveys</HashLink>
+                  <HashLink smooth to="/portfolio#Electromagnetic-Surveys" className="dropdown-item-custom">Electromagnetic Surveys</HashLink>
+                  <HashLink smooth to="/portfolio#Geophysical-Investigations" className="dropdown-item-custom">Geophysical Investigations</HashLink>
+                  <HashLink smooth to="/portfolio#Hydrogeological-Studies" className="dropdown-item-custom">Hydrogeological Studies</HashLink>
+                  <HashLink smooth to="/portfolio#3D-Lithological-Modeling" className="dropdown-item-custom">3D Lithological Modeling</HashLink>
+                  <HashLink smooth to="/portfolio#Groundwater-Surveys" className="dropdown-item-custom">Groundwater Surveys</HashLink>
+                  <HashLink smooth to="/portfolio#Aquifer-Recharge-Services" className="dropdown-item-custom">Aquifer Recharge Services</HashLink>
+                  <HashLink smooth to="/portfolio#Rainwater-Harvesting" className="dropdown-item-custom">Rainwater Harvesting</HashLink>
+                  <HashLink smooth to="/portfolio#ETP-STP-Consulting-&-Works" className="dropdown-item-custom">ETP/STP Consulting & Works</HashLink>
+                  <HashLink smooth to="/portfolio#Drone-Based-Surveys" className="dropdown-item-custom">Drone-Based Surveys</HashLink>
+                  <HashLink smooth to="/portfolio#Borewell-Services" className="dropdown-item-custom">Borewell Services</HashLink>
+                  <HashLink smooth to="/portfolio#Construction-&-Monitoring-Services" className="dropdown-item-custom">Construction & Monitoring Services</HashLink>
                 </div>
               </div>
 

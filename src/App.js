@@ -28,7 +28,9 @@ const App = () => {
         <Route path="/instruments" element={<Instruments />} />
         <Route path="/termsofservices" element={<TermsOfService />} />
         <Route path="/client" element={<Clients />} />
-        <Route path="/portfolio/:id?" element={<PortfolioDetails />} /> {/* ✅ New Portfolio Route */}
+        {/* Single portfolio route with optional :id param */}
+        <Route path="/portfolio/:id?" element={<PortfolioDetails />} />
+         
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
@@ -36,3 +38,5 @@ const App = () => {
 };
 
 export default App;
+
+

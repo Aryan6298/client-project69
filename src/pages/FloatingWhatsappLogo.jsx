@@ -12,7 +12,7 @@ const FloatingWhatsAppButton = () => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
           alt="WhatsApp"
-          style={{ width: '60px', height: '60px' }}
+          className="whatsapp-icon"
         />
       </a>
 
@@ -29,6 +29,22 @@ const FloatingWhatsAppButton = () => {
 
           .whatsapp-float:hover {
             transform: scale(1.1);
+          }
+
+          .whatsapp-icon {
+            width: 50px;
+            height: 50px;
+            max-width: 12vw;
+            min-width: 40px;
+            min-height: 40px;
+            object-fit: contain;
+          }
+
+          @media (max-width: 480px) {
+            .whatsapp-icon {
+              width: 45px;
+              height: 45px;
+            }
           }
         `}
       </style>
