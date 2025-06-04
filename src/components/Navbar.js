@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import {
+  Navbar,
+  Nav,
+  Container,
+  Offcanvas,
+  Button,
+  Collapse,
+} from 'react-bootstrap';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import logo from '../assets/final-main-logo.png';
 
 const NavigationBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -50,20 +60,6 @@ const NavigationBar = () => {
           color: #26c4bf !important;
         }
 
-        .nav-initial-container {
-          position: absolute;
-          left: 0;
-          display: flex;
-          gap: 1rem;
-        }
-
-        .nav-shifted-container {
-          position: static;
-          margin-left: auto;
-          display: flex;
-          gap: 1rem;
-        }
-
         .brand-box {
           display: flex;
           align-items: center;
@@ -78,7 +74,21 @@ const NavigationBar = () => {
         }
 
         .brand-box span {
-          color: white  !important;
+          color: white !important;
+        }
+
+        .nav-initial-container {
+          position: absolute;
+          left: 0;
+          display: flex;
+          gap: 1rem;
+        }
+
+        .nav-shifted-container {
+          position: static;
+          margin-left: auto;
+          display: flex;
+          gap: 1rem;
         }
 
         .nav-shifted-container .nav-link {
@@ -114,38 +124,6 @@ const NavigationBar = () => {
           background: #26c4bf;
         }
 
-        .dropdown-container {
-          position: relative;
-        }
-
-        .dropdown-container:hover .dropdown-menu-custom {
-          display: grid;
-          opacity: 1;
-          transform: translateY(0);
-          pointer-events: all;
-        }
-
-        .dropdown-menu-custom {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          min-width: 400px;
-          background: #f9f9f9;
-          color: #000;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-          z-index: 999;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: all 0.3s ease-in-out;
-          pointer-events: none;
-          white-space: nowrap;
-        }
-
         .dropdown-item-custom {
           color: #000;
           text-decoration: none;
@@ -153,82 +131,97 @@ const NavigationBar = () => {
           padding: 5px 10px;
           border-radius: 6px;
           transition: background 0.3s;
+          display: block;
         }
 
         .dropdown-item-custom:hover {
           background-color: #e0f7fa;
         }
 
+        .services-dropdown-menu {
+          position: absolute;
+          background: white;
+          top: 100%;
+          left: 0;
+          z-index: 1050;
+          min-width: 250px;
+          padding: 10px;
+          border-radius: 8px;
+          box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+          display: none;
+        }
+
+        .services-hover:hover .services-dropdown-menu {
+          display: block;
+        }
+
         @media (max-width: 991px) {
-          .navbar-collapse {
-            background: #0e3d59;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 0.5rem 1rem;
+          .services-dropdown-menu {
+            display: none !important;
           }
+        }
 
-          .nav-shifted-container {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-          }
+        .navbar-toggler {
+          border: none;
+        }
 
-          .nav-shifted-container .nav-link {
-            opacity: 1 !important;
-            transform: none !important;
-            transition: none;
-            margin: 0;
-            font-size: 1rem;
-            padding: 0.5rem 0.75rem;
-            white-space: nowrap;
-          }
-
-          .dropdown-menu-custom {
-            min-width: 300px;
-            position: absolute;
-          }
+        .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
       `}</style>
 
-      <Navbar
-        expand="lg"
-        className={`navbar-custom py-2 ${scrolled ? 'navbar-fixed' : ''}`}
-      >
+      <Navbar expand="lg" className={`navbar-custom py-2 ${scrolled ? 'navbar-fixed' : ''}`}>
         <Container fluid className="d-flex justify-content-between align-items-center position-relative">
           <Link to="/" style={{ textDecoration: 'none' }} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
-            <img src={logo} alt="Logo" height="50" className="me-2" style={{ marginTop: '5px' }} />
-            <span className="fw-bold fs-3" style={{ marginTop: '-5px', marginLeft: '5px' }}>
-              GEOCON SERVICES
-            </span>
+            <img src={logo} alt="Logo" height="50" className="me-2" />
+            <span className="fw-bold fs-3 ms-2">GEOCON SERVICES</span>
           </Link>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
+          <Navbar.Toggle
+            aria-controls="offcanvas-navbar"
+            className="ms-auto"
+            onClick={() => setShowOffcanvas(true)}
+          />
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={scrolled ? 'nav-shifted-container' : 'nav-initial-container'}>
               <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active-link' : ''}`}>Home</NavLink>
 
-              <div className="nav-item dropdown-container">
+              <div
+                className="nav-item services-hover position-relative"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
                 <NavLink
                   to="/services"
                   className={`nav-link ${location.pathname.startsWith('/services') ? 'active-link' : ''}`}
                 >
                   Services ⯆
                 </NavLink>
-                <div className="dropdown-menu-custom" style={{ marginLeft: '-60px', marginTop: '5px' }}>
-                  <HashLink smooth to="/portfolio#Resistivity-Surveys" className="dropdown-item-custom">Resistivity Surveys</HashLink>
-                  <HashLink smooth to="/portfolio#Electromagnetic-Surveys" className="dropdown-item-custom">Electromagnetic Surveys</HashLink>
-                  <HashLink smooth to="/portfolio#Geophysical-Investigations" className="dropdown-item-custom">Geophysical Investigations</HashLink>
-                  <HashLink smooth to="/portfolio#Hydrogeological-Studies" className="dropdown-item-custom">Hydrogeological Studies</HashLink>
-                  <HashLink smooth to="/portfolio#3D-Lithological-Modeling" className="dropdown-item-custom">3D Lithological Modeling</HashLink>
-                  <HashLink smooth to="/portfolio#Groundwater-Surveys" className="dropdown-item-custom">Groundwater Surveys</HashLink>
-                  <HashLink smooth to="/portfolio#Aquifer-Recharge-Services" className="dropdown-item-custom">Aquifer Recharge Services</HashLink>
-                  <HashLink smooth to="/portfolio#Rainwater-Harvesting" className="dropdown-item-custom">Rainwater Harvesting</HashLink>
-                  <HashLink smooth to="/portfolio#ETP-STP-Consulting-&-Works" className="dropdown-item-custom">ETP/STP Consulting & Works</HashLink>
-                  <HashLink smooth to="/portfolio#Drone-Based-Surveys" className="dropdown-item-custom">Drone-Based Surveys</HashLink>
-                  <HashLink smooth to="/portfolio#Borewell-Services" className="dropdown-item-custom">Borewell Services</HashLink>
-                  <HashLink smooth to="/portfolio#Construction-&-Monitoring-Services" className="dropdown-item-custom">Construction & Monitoring Services</HashLink>
+                <div className="services-dropdown-menu">
+                  {[
+                    'Resistivity-Surveys',
+                    'Electromagnetic-Surveys',
+                    'Geophysical-Investigations',
+                    'Hydrogeological-Studies',
+                    '3D-Lithological-Modeling',
+                    'Groundwater-Surveys',
+                    'Aquifer-Recharge-Services',
+                    'Rainwater-Harvesting',
+                    'ETP-STP-Consulting-&-Works',
+                    'Drone-Based-Surveys',
+                    'Borewell-Services',
+                    'Construction-&-Monitoring-Services',
+                  ].map((item, index) => (
+                    <HashLink
+                      key={index}
+                      smooth
+                      to={`/portfolio#${item}`}
+                      className="dropdown-item-custom"
+                    >
+                      {item.replace(/-/g, ' ')}
+                    </HashLink>
+                  ))}
                 </div>
               </div>
 
@@ -241,6 +234,66 @@ const NavigationBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      <Offcanvas
+        show={showOffcanvas}
+        onHide={() => setShowOffcanvas(false)}
+        placement="end"
+        style={{ width: '60%', background: '#0e3d59', color: 'white' }}
+      >
+        <Offcanvas.Header closeButton closeVariant="white">
+          <Offcanvas.Title>Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="flex-column">
+            <NavLink to="/" className="nav-link" onClick={() => setShowOffcanvas(false)}>Home</NavLink>
+            <Button
+              variant="link"
+              className="nav-link text-start"
+              onClick={() => setServicesOpen(!servicesOpen)}
+              style={{ color: 'white', textDecoration: 'none' }}
+            >
+              Services {servicesOpen ? '⯅' : '⯆'}
+            </Button>
+            <Collapse in={servicesOpen}>
+              <div className="ps-3">
+                {[ 
+                  'Resistivity-Surveys',
+                  'Electromagnetic-Surveys',
+                  'Geophysical-Investigations',
+                  'Hydrogeological-Studies',
+                  '3D-Lithological-Modeling',
+                  'Groundwater-Surveys',
+                  'Aquifer-Recharge-Services',
+                  'Rainwater-Harvesting',
+                  'ETP-STP-Consulting-&-Works',
+                  'Drone-Based-Surveys',
+                  'Borewell-Services',
+                  'Construction-&-Monitoring-Services',
+                ].map((item, index) => (
+                  <HashLink
+                    key={index}
+                    smooth
+                    to={`/portfolio#${item}`}
+                    className="dropdown-item-custom"
+                    onClick={() => {
+                      setShowOffcanvas(false);
+                      setServicesOpen(false);
+                    }}
+                  >
+                    {item.replace(/-/g, ' ')}
+                  </HashLink>
+                ))}
+              </div>
+            </Collapse>
+            <NavLink to="/instruments" className="nav-link" onClick={() => setShowOffcanvas(false)}>Instruments</NavLink>
+            <NavLink to="/about" className="nav-link" onClick={() => setShowOffcanvas(false)}>About Us</NavLink>
+            <NavLink to="/project" className="nav-link" onClick={() => setShowOffcanvas(false)}>Projects</NavLink>
+            <NavLink to="/client" className="nav-link" onClick={() => setShowOffcanvas(false)}>Clients</NavLink>
+            <NavLink to="/contact" className="nav-link" onClick={() => setShowOffcanvas(false)}>Contact</NavLink>
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   );
 };
