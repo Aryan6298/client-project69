@@ -73,47 +73,49 @@ const Services = () => {
   }, [showVideo, videoDismissed]);
 
   const clientsProjects = [
-    "Hydrogeological Investigation and Impact Assessment",
-    "Rainwater Harvesting and Ground Water Recharging (Study, Installation, and Pits Construction)",
-    "Environmental and Water Impact Assessment and Audit",
-    "Aquifer and Well Hydraulic Testing and Geophysical Survey for Water Resource Assessment (Including Electromagnetic and Groundwater Surveys)",
-    "Ground Survey",
-    "Recharge Structure Design and Construction (Including Recharge Shaft)",
-    "Groundwater NOC Compliance and Consultancy",
-    "Water Body Regeneration (Ponds and Bawadi Repairing and Cleaning)",
-    "DWLR, Flow Meter Supply, Installation, and Remote Display, and Water Level Recording",
-    "Borewell Site Selection",
+    "Geophysical Resistivity Survey",
+    "Hydrogeological Study ,Intervention & Management Plan per GroundWater",
+    "Rainwater Harvesting and Ground Water Recharging ",
+    "Impact Assessment Study and Water Audit",
+    "Aquifer Mapping & Management Plan ; APT,SDT,Slug Test ",
+    "Ground Survey ,Borewell site selection",
+    "Recharge Structure Design and Construction",
+    "Consultancy Groundwater NOC & Compliance From CGWA",
+    "Water Body Rejuvenation (Ponds and Bawadi Repairing and Cleaning)",
+    "Piezometer(DWLR) & Flow Meter Supply and Installation ",
     "Drilling, Borehole Logging, and Litholog Preparation",
-    "GIS & GPS Survey",
-    "Water Quality Analysis",
-    "Mining Plans",
+    "GIS Analysis, GPS & Satellite Survey",
+    "Water Quality Monitoring & Analysis",
+    "Mining Plans & Survey",
     "Percolation and Soil Infiltration Testing",
-    "ERT Earth Resistance Testing Service",
-    "Stainless Steel Wire Screen Tubewell Filter Service",
-    "Soil Resistivity Testing Service"
+    "ERT Earth Resistance Testing Services",
+    "Soil Testing Service",
+    "Environmental Services (Pollution Monitoring systems)",
+    "Consultancy Service For CTE, CTO and Hazardous Waste Management",
+    "Flood Study & Mitigation Plant",
+    "Consultancy For STP ,ETP & RO Plant",
   ];
 
- const portfolioItems = [
-  { image: portfolio1, title: "Resistivity Survey" },
-  { image: portfolio2, title: "Electromagnetic Survey for Ground Water" },
-  { image: portfolio3, title: "Lithological 3D Modeling" },
-  { image: portfolio4, title: "Hydrogeological Study" },
-  { image: portfolio5, title: "ETP and STO Works" },
-  { image: portfolio6, title: "Resistivity Survey" },
-  { image: portfolio7, title: "Geoelectrical Resistivity Cross Section" },
-  { image: portfolio8, title: "Geophysical Investigation Service" },
-  { image: portfolio9, title: "Groundwater Survey Services" },
-  { image: portfolio10, title: "Ground Water Recharging Construction Service" },
-  { image: portfolio11, title: "Survey Through Drone" },
-  { image: portfolio12, title: "Borewell Construction Service" },
-  { image: portfolio13, title: "Roof Water Rain Water Harvesting" },
-  { image: portfolio14, title: "Aquifer Recharge Structure" },
-  { image: portfolio15, title: "Survey Through Drone" },
-  { image: portfolio16, title: "Groundwater Level Monitoring Surveys" },
-  { image: portfolio17, title: "Geophysical Survey at JNRI" },
-  { image: portfolio18, title: "Groundwater Monitoring Survey" }
-];
-
+  const portfolioItems = [
+    { image: portfolio1, title: "Resistivity Survey" },
+    { image: portfolio2, title: "Electromagnetic Survey for Ground Water" },
+    { image: portfolio3, title: "Lithological 3D Modeling" },
+    { image: portfolio4, title: "Hydrogeological Study" },
+    { image: portfolio5, title: "ETP and STO Works" },
+    { image: portfolio6, title: "Resistivity Survey" },
+    { image: portfolio7, title: "Geoelectrical Resistivity Cross Section" },
+    { image: portfolio8, title: "Geophysical Investigation Service" },
+    { image: portfolio9, title: "Groundwater Survey Services" },
+    { image: portfolio10, title: "Ground Water Recharging Construction Service" },
+    { image: portfolio11, title: "Survey Through Drone" },
+    { image: portfolio12, title: "Borewell Construction Service" },
+    { image: portfolio13, title: "Roof Water Rain Water Harvesting" },
+    { image: portfolio14, title: "Aquifer Recharge Structure" },
+    { image: portfolio15, title: "Survey Through Drone" },
+    { image: portfolio16, title: "Groundwater Level Monitoring Surveys" },
+    { image: portfolio17, title: "Geophysical Survey at JNRI" },
+    { image: portfolio18, title: "Groundwater Monitoring Survey" }
+  ];
 
   const logoStyle = {
     height: "110px",
@@ -175,10 +177,18 @@ const Services = () => {
           transform: scale(1.12);
           filter: brightness(1.1);
         }
-        .table thead th,
-        .table tbody td {
-          background-color: rgba(255, 255, 255, 0.05) !important;
-          color: black !important;
+        .services-table {
+          background-color: rgba(255, 255, 255, 0.55) !important;
+          border: 2px solid rgba(255, 255, 255, 0.4);
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        .services-table td,
+        .services-table th {
+          background-color: transparent !important;
+          font-weight: 700;
+          color: black;
         }
         .floating-video {
           position: fixed;
@@ -229,7 +239,7 @@ const Services = () => {
       {/* Services Table */}
       <div className="table-responsive mb-5" data-aos="fade-up">
         <h3 className="client-heading">Our Services</h3>
-        <table className="table table-bordered table-hover shadow-sm" style={{ backgroundColor: 'rgba(255, 255, 255, 0.85)', borderColor: 'black' }}>
+        <table className="table table-bordered table-hover shadow-sm services-table">
           <tbody>
             {Array.from({ length: Math.ceil(clientsProjects.length / 3) }).map((_, rowIndex) => (
               <tr key={rowIndex}>

@@ -1,6 +1,21 @@
 body {
-  background: url('../src/assets/grey-earth.png') no-repeat center center fixed;
+  position: relative;
+  background: url('../src/assets/faded-nature.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity for more/less darkness */
+  z-index: -1;
 }
