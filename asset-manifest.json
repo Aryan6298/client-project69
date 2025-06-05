@@ -1,14 +1,13 @@
 {
   "files": {
     "main.css": "/client-project69/static/css/main.7c9191eb.css",
-    "main.js": "/client-project69/static/js/main.522d5bd6.js",
+    "main.js": "/client-project69/static/js/main.92098548.js",
     "static/js/453.fe72d1bf.chunk.js": "/client-project69/static/js/453.fe72d1bf.chunk.js",
     "static/media/port-img13.jpg": "/client-project69/static/media/port-img13.34222bcfa484e55ccfdb.jpg",
     "static/media/port-img14.jpg": "/client-project69/static/media/port-img14.5aaf5d324807e0fb0465.jpg",
     "static/media/PGP.jpg": "/client-project69/static/media/PGP.ee8819446cc01049ec81.jpg",
     "static/media/image11.jpg": "/client-project69/static/media/image11.ee033eb66e512353f763.jpg",
     "static/media/port-img08.jpg": "/client-project69/static/media/port-img08.ee033eb66e512353f763.jpg",
-    "static/media/image02.png": "/client-project69/static/media/image02.bc726e7197ec76460dd1.png",
     "static/media/port-img10.jpg": "/client-project69/static/media/port-img10.47d456de9c74d3b53ad7.jpg",
     "static/media/image09.jpg": "/client-project69/static/media/image09.2cd0c83c2b0ec83ef6ca.jpg",
     "static/media/port-img12.jpg": "/client-project69/static/media/port-img12.2cd0c83c2b0ec83ef6ca.jpg",
@@ -28,6 +27,7 @@
     "static/media/port-img06.jpeg": "/client-project69/static/media/port-img06.b69b846d0f55db228f6f.jpeg",
     "static/media/image08.jpg": "/client-project69/static/media/image08.8ee9b5898b1bb57c38d8.jpg",
     "static/media/port-img01.jpg": "/client-project69/static/media/port-img01.8ee9b5898b1bb57c38d8.jpg",
+    "static/media/gallery03.jpg": "/client-project69/static/media/gallery03.279860c72ffe7c517e49.jpg",
     "static/media/faded-nature.jpg": "/client-project69/static/media/faded-nature.473b58e2e48676ff8e40.jpg",
     "static/media/PIEZOMETER.jpg": "/client-project69/static/media/PIEZOMETER.d900a538ed9bb03a25df.jpg",
     "static/media/image07.jpg": "/client-project69/static/media/image07.d900a538ed9bb03a25df.jpg",
@@ -48,11 +48,11 @@
     "static/media/NNI.jpg": "/client-project69/static/media/NNI.8237b0eebd27262dea14.jpg",
     "index.html": "/client-project69/index.html",
     "main.7c9191eb.css.map": "/client-project69/static/css/main.7c9191eb.css.map",
-    "main.522d5bd6.js.map": "/client-project69/static/js/main.522d5bd6.js.map",
+    "main.92098548.js.map": "/client-project69/static/js/main.92098548.js.map",
     "453.fe72d1bf.chunk.js.map": "/client-project69/static/js/453.fe72d1bf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7c9191eb.css",
-    "static/js/main.522d5bd6.js"
+    "static/js/main.92098548.js"
   ]
 }
