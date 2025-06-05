@@ -40,6 +40,9 @@ const Footer = () => {
                 <FaPhone className="me-2" /> +91 76930-39555
               </a>
             </p>
+            <p> <a href="tel:075557963840" className="footer-link">
+              Landline: 075-557963840
+            </a></p>
             <p>
               <a href="mailto:servicesgeocon@gmail.com" className="footer-link">
                 <FaEnvelope className="me-2" /> servicesgeocon@gmail.com

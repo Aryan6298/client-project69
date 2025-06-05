@@ -23,16 +23,16 @@ const TopBar = () => {
             </Link>
           </Col>
           <Col md={6} style={{ color: 'black' }}>
-            <a href="tel:7693039555" className="topbar-link">
+            <a href="tel:9669954433" className="topbar-link">
               <FaPhoneAlt className="me-2" />+91 96699-54433
             </a>
             ,{' '}
-            <a href="tel:9669954433" className="topbar-link">
+            <a href="tel:7693039555" className="topbar-link">
               +91 76930-39555
             </a>
             ,{' '}
             <span className="mx-3">|</span>
-            <a href="tel:01112345678" className="topbar-link">
+            <a href="tel:075557963840" className="topbar-link">
               Landline: 075-557963840
             </a>
           
