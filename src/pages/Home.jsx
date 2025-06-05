@@ -5,8 +5,9 @@ import ImageCarousel from "../components/ImageCarousel";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
-import About from "../components/about";
+
 import Services from "../components/services";
+import EventBanner from "../components/EventBanner";
 
 const Home = () => {
   useEffect(() => {
@@ -15,6 +16,7 @@ const Home = () => {
 
   return (
     <>
+   
       {/* TopBar - appears above Navbar */}
       <div style={{ position: 'relative', zIndex: 1030 }}>
         <TopBar />

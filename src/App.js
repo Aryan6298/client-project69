@@ -13,11 +13,13 @@ import Projects from "./pages/Projects";
 import TermsOfService from "./pages/TermsOfServices";
 import Instruments from "./pages/Instruments";
 import PortfolioDetails from "./pages/PortfolioDetails"; // ✅ NEW IMPORT
+import EventBanner from "./components/EventBanner";
 
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
+      <EventBanner/>
       <FloatingWhatsAppButton />
       <Routes>
         <Route path="/" element={<Home />} />

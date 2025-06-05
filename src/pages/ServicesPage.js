@@ -31,7 +31,7 @@ import portfolio10 from "../assets/services/port-img10.jpg";
 import portfolio11 from "../assets/services/port-img11.jpg";
 import portfolio12 from "../assets/services/port-img12.jpg";
 import portfolio13 from "../assets/services/port-img13.jpg";
-import portfolio14 from "../assets/services/port-img14.jpg";
+import portfolio14 from"../assets/gallery03.jpg";
 import portfolio15 from "../assets/services/port-img15.jpg";
 import portfolio16 from "../assets/services/port-img16.jpg";
 import portfolio17 from "../assets/services/port-img17.jpg";

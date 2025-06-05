@@ -31,7 +31,7 @@ import portfolio10 from "../assets/services/port-img10.jpg";
 import portfolio11 from "../assets/services/port-img11.jpg";
 import portfolio12 from "../assets/services/port-img12.jpg";
 import portfolio13 from "../assets/services/port-img13.jpg";
-import portfolio14 from "../assets/services/port-img14.jpg";
+import portfolio14 from "../assets/gallery03.jpg";
 import portfolio15 from "../assets/services/port-img15.jpg";
 import portfolio16 from "../assets/services/port-img16.jpg";
 import portfolio17 from "../assets/services/port-img17.jpg";
@@ -350,26 +350,26 @@ const Services = () => {
         {[{
           initials: "RS",
           name: "Mr. Rakesh Sharma",
-          position: "Project Manager, Hindustan Ltd.",
+      
           review: "GEOCON’s geophysical surveys were instrumental in helping us make informed decisions. Their attention to detail and data accuracy exceeded our expectations.",
           rating: 4.9
         }, {
           initials: "SV",
           name: "Dr. Seema Verma",
-          position: "Hydrologist, Government of India",
+       
           review: "Their hydrogeological analysis was comprehensive and well-documented. I highly recommend their services to government and private sector projects alike.",
           rating: 4.8
         }, {
           initials: "RB",
           name: "Rajeev Bansal",
-          position: "Sr. Engineer, UltraTech Cement",
+         
           review: "Their team handled our groundwater compliance project with great professionalism. The reporting and execution were timely and efficient.",
           rating: 4.9
         },
        {
     initials: "NS",
     name: "Nikita Sinha",
-    position: "Environmental Consultant, EcoStrat Pvt. Ltd.",
+ 
     review: "Working with GEOCON was smooth and efficient. Their rainwater harvesting expertise helped our client achieve sustainability compliance effortlessly.",
     rating: 4.7
   }
@@ -411,7 +411,7 @@ const Services = () => {
         <p className="mb-2">✔ Accurate Reporting & Timely Delivery</p>
         <div className="mt-4 text-center">
           <a
-            href="https://www.google.com/maps/place/Your+Business+Google+Page+Link+Here/reviews"
+            href="https://www.google.com/maps/place/Geocon+Services+(Rain+water+Harvesting)/@22.687925,75.8791463,17z/data=!4m8!3m7!1s0x3962fd9fc473ecf3:0x4df128bc354f9b42!8m2!3d22.687925!4d75.8791463!9m1!1b1!16s%2Fg%2F11fn4_0lpf?entry=ttu&g_ep=EgoyMDI1MDYwMi4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="view-more-btn"
