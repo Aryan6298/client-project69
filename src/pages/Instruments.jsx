@@ -156,7 +156,7 @@ const SurveyMachines = () => {
           <h2 className="mb-5 text-center fw-bold" data-aos="fade-down">
             Survey Machines Overview
           </h2>
-          <Table bordered hover responsive className="table rounded shadow-lg light-grey-table">
+          <Table bordered hover responsive className="table rounded shadow-lg light-grey-table" >
             <thead>
               <tr className="text-center">
                 <th data-aos="fade-up">Image</th>

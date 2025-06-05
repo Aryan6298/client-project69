@@ -30,7 +30,7 @@ const NavigationBar = () => {
     <>
       <style>{`
         .navbar-custom {
-          background: #1C1F2A;
+          background:  #1C1F2A;
           transition: all 0.5s ease;
           z-index: 1040;
           position: absolute;
@@ -74,7 +74,7 @@ const NavigationBar = () => {
         }
 
         .brand-box span {
-          color: white !important;
+             color:white;
         }
 
         .nav-initial-container {
@@ -174,7 +174,7 @@ const NavigationBar = () => {
         <Container fluid className="d-flex justify-content-between align-items-center position-relative">
           <Link to="/" style={{ textDecoration: 'none' }} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
             <img src={logo} alt="Logo" height="50" className="me-2" />
-            <span className="fw-bold fs-3 ms-2">GEOCON SERVICES</span>
+            <span className="fw-bold fs-3 ms-2"style={{marginTop:'-7px'}} >GEOCON SERVICES</span>
           </Link>
 
           <Navbar.Toggle
