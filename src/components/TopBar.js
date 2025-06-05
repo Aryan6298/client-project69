@@ -50,11 +50,7 @@ const TopBar = () => {
                 <span>servicesgeocon@gmail.com</span>
               </a>
             </div>
-            <div className="text-center text-md-end">
-              <a href="tel:075557963840" className="topbar-link" style={{marginRight:'330px'}}>
-                Landline: 075-557963840
-              </a>
-            </div>
+          
           </Col>
         </Row>
       </Container>
