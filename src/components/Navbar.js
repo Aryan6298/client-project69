@@ -174,7 +174,10 @@ const NavigationBar = () => {
         <Container fluid className="d-flex justify-content-between align-items-center position-relative">
           <Link to="/" style={{ textDecoration: 'none' }} className={`brand-box ${scrolled ? 'scrolled' : ''}`}>
             <img src={logo} alt="Logo" height="50" className="me-2" />
-            <span className="fw-bold fs-3 ms-2"style={{marginTop:'-7px'}} >GEOCON SERVICES</span>
+            <span className="fw-bold fs-3 ms-2"style={{marginTop:'-15px'}} >GEOCON SERVICES</span>
+             <span style={{ color: 'white', fontSize: '0.9rem', marginTop: '40px' , fontStyle: 'italic',marginLeft:'-185px' }}>
+                     We Are Environment Friendly...
+                </span>
           </Link>
 
           <Navbar.Toggle

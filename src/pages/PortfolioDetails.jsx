@@ -22,115 +22,114 @@ import portfolio18 from "../assets/services/port-img18.jpg";
 import TopBar from "../components/TopBar";
 import NavigationBar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 const portfolioData = [
   {
     title: "Resistivity Surveys",
     image: portfolio1,
     description:
-      "We offer precise resistivity surveys for mapping subsurface formations. This technique is especially effective for groundwater exploration, geotechnical investigations, and contamination mapping.",
+      "Our resistivity surveys accurately map subsurface formations to identify groundwater potential, detect fractures, and support geotechnical site assessments.",
   },
   {
     title: "Electromagnetic Surveys",
     image: portfolio2,
     description:
-      "Our electromagnetic surveys use cutting-edge instruments to detect subsurface conductivity variations, supporting fast and efficient groundwater and mineral exploration.",
+      "We perform electromagnetic surveys to evaluate subsurface conductivity, enabling rapid assessment of aquifers, salinity zones, and buried features.",
   },
   {
     title: "Geophysical Investigations",
     image: portfolio3,
     description:
-      "We conduct integrated geophysical investigations using seismic, resistivity, and electromagnetic methods for detailed understanding of subsurface conditions.",
+      "Comprehensive geophysical investigations combining multiple techniques for detailed analysis of subsurface geology, groundwater, and mineral potential.",
   },
   {
     title: "Hydrogeological Studies",
     image: portfolio4,
     description:
-      "We perform hydrogeological studies to assess aquifer behavior, groundwater flow, recharge potential, and water quality for sustainable water resource management.",
+      "Detailed hydrogeological studies to assess groundwater availability, recharge zones, aquifer behavior, and sustainable water resource management.",
   },
   {
-    title: "3D Lithological Modeling",
+    title: "ETP and STO Works",
     image: portfolio5,
     description:
-      "Our 3D lithological models provide a clear visual of subsurface geology using GIS and borehole data, supporting drilling and construction decisions.",
+      "Design and implementation of Effluent Treatment Plants (ETP) and Sewage Treatment Outlets (STO) with a focus on regulatory compliance and efficiency.",
   },
   {
-    title: "Groundwater Surveys",
+    title: "Resistivity Survey",
     image: portfolio6,
     description:
-      "We identify potential zones for groundwater extraction through geophysical methods, ensuring optimal borewell placement and water yield.",
+      "Precision resistivity surveys conducted for groundwater prospecting, soil characterization, and environmental site evaluations.",
   },
   {
-    title: "Aquifer Recharge Services",
+    title: "Geological 2d Cross Section",
     image: portfolio7,
     description:
-      "We offer design and implementation of aquifer recharge structures including trenches and wells to promote groundwater sustainability.",
+      "Creation of 2D geological cross sections based on geophysical and borehole data to visualize subsurface layering and guide construction planning.",
   },
   {
-    title: "Rainwater Harvesting",
+    title: "Geophysical Investigation Service",
     image: portfolio8,
     description:
-      "Our rainwater harvesting solutions include rooftop collection, filtration, and recharge systems designed for both residential and commercial use.",
+      "Expert geophysical services tailored to explore groundwater, detect subsurface structures, and support infrastructure development.",
   },
   {
-    title: "ETP/STP Consulting & Works",
+    title: "Groundwater Survey Service",
     image: portfolio9,
     description:
-      "We consult and construct Effluent and Sewage Treatment Plants with custom designs for industrial and municipal applications, ensuring compliance and efficiency.",
+      "Systematic surveys conducted to locate optimal sites for groundwater extraction using advanced geophysical methods and hydrological analysis.",
   },
   {
-    title: "Drone-Based Surveys",
+    title: "Recharge Structure Construction",
     image: portfolio10,
     description:
-      "Our drone-based surveys deliver high-resolution imagery for topographic mapping, environmental studies, and infrastructure monitoring using photogrammetry and LiDAR.",
+      "Design and construction of effective groundwater recharge structures like recharge shafts, trenches, and percolation tanks to improve aquifer recharge.",
   },
   {
-    title: "Borewell Services",
+    title: "Ground Water Detection Services",
     image: portfolio11,
     description:
-      "We provide complete borewell solutions including drilling, casing, development, and maintenance for domestic and industrial applications.",
+      "Reliable groundwater detection using geophysical techniques to ensure efficient borewell placement and sustainable resource extraction.",
   },
   {
-    title: "Construction & Monitoring Services",
+    title: "Borewell Construction Service",
     image: portfolio12,
     description:
-      "We manage construction and performance monitoring of groundwater structures, ensuring longevity, safety, and regulatory compliance.",
+      "Turnkey borewell construction services including site selection, drilling, casing, and testing for domestic, agricultural, and industrial needs.",
   },
   {
-    title: "Remote Sensing & GIS Mapping",
+    title: "Roof Water Rain Water Harvesting",
     image: portfolio13,
     description:
-      "We utilize satellite imagery and GIS tools for land use classification, resource mapping, and environmental impact assessments.",
+      "Customized rooftop rainwater harvesting systems designed to capture, filter, and recharge rainwater, promoting sustainable water use.",
   },
   {
-    title: "Slope Stability Analysis",
+    title: "Aquifer Recharge Structure",
     image: portfolio14,
     description:
-      "Our slope stability analysis uses geotechnical and geophysical data to assess landslide risk and ensure safe construction practices in hilly terrains.",
+      "Planning and development of aquifer recharge structures to enhance groundwater levels and ensure long-term water sustainability.",
   },
   {
-    title: "Water Quality Analysis",
+    title: "Survey through Drone",
     image: portfolio15,
     description:
-      "We conduct comprehensive water quality testing to assess physical, chemical, and biological parameters for drinking, irrigation, and industrial use.",
+      "High-resolution drone surveys for topographical mapping, site monitoring, volumetric analysis, and environmental assessments.",
   },
   {
-    title: "Pipeline Detection & Mapping",
+    title: "Groundwater Level Monitoring Surveys",
     image: portfolio16,
     description:
-      "We detect and map underground pipelines using GPR and EM methods, supporting urban planning and infrastructure safety.",
+      "Continuous groundwater level monitoring using digital and manual methods to assess seasonal trends and evaluate recharge effectiveness.",
   },
   {
-    title: "Soil Resistivity Testing",
+    title: "RWH by Latest Technology",
     image: portfolio17,
     description:
-      "Our soil resistivity tests are used for earthing design, corrosion risk evaluation, and understanding soil behavior for construction planning.",
+      "Advanced rainwater harvesting systems incorporating modern filtration, automation, and smart recharge technologies for maximum efficiency.",
   },
   {
-    title: "Mine Planning & Exploration",
+    title: "Construction of Recharge Shaft",
     image: portfolio18,
     description:
-      "We assist in mine planning through geophysical surveys and geological mapping, helping clients identify mineral zones and ensure safe extraction.",
+      "Expert construction of deep recharge shafts for efficient and direct infiltration of surface water into groundwater aquifers.",
   },
 ];
 

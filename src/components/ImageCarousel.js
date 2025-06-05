@@ -14,18 +14,18 @@ import img11 from '../assets/image11.jpg';
 import img12 from '../assets/image04.jpeg';
 
 const baseImages = [
-  { src: img01, heading: 'Save Water, Save Earth' },
+  { src: img01, heading: 'Be the Change' },
   { src: img02, heading: 'Go Green, Live Clean' },
-  { src: img03, heading: 'Protect Our Planet' },
-  { src: img04, heading: 'Every Drop Matters' },
-  { src: img05, heading: 'Think Green' },
-  { src: img06, heading: 'Reduce, Reuse, Recycle' },
-  { src: img07, heading: 'Be the Change' },
+  { src: img03, heading: 'Small Acts, Big Impact' },
+  { src: img04, heading: 'Act for Nature' },
+  { src: img05, heading: 'Think Green Every Drop Matters' },
+  { src: img06, heading: 'Flying to Protect what Matters the Most' },
+  { src: img07, heading: 'Clean Water, Bright Future' },
   { src: img08, heading: 'Love the Earth' },
-  { src: img09, heading: 'Green Is the New Black' },
-  { src: img10, heading: 'Act for Nature' },
-  { src: img11, heading: 'Small Acts, Big Impact' },
-  { src: img12, heading: 'Clean Water, Bright Future' },
+  { src: img09, heading: 'Save Water,Save Earth' },
+  { src: img10, heading: 'Nature needs your help' },
+  { src: img11, heading: 'Protect Our Planet' },
+  { src: img12, heading: 'Green Is the New Black' },
 ];
 
 // Create 12 slides using base images
@@ -73,26 +73,45 @@ const ImageCarousel = () => {
           transition: height 0.3s ease;
           display: block;
         }
+.image-caption {
+  font-family: 'Playfair Display', serif;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px) scale(0.95);
+  opacity: 0;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  animation: slideInCaption 1s ease-out forwards;
+  white-space: nowrap;
+  text-align: center;
+  width: 90%;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
-        .image-caption {
-          position: absolute;
-          bottom: 5%;
-          left: 50%;
-          transform: translateX(-50%);
-          color: #fff;
-          font-weight: 600;
-          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-          animation: fadeInUp 1s ease;
-          white-space: nowrap;
-          text-align: center;
-          width: 90%;
-          font-size: 1.5rem; /* base desktop size */
-        }
+.image-caption:hover {
+  transform: translateX(-50%) scale(1.05);
+  color:rgb(69, 161, 158);
+}
 
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translate(-50%, 30px); }
-          to { opacity: 1; transform: translate(-50%, 0); }
-        }
+/* ✨ Slide + Scale + Fade animation for better appearance */
+@keyframes slideInCaption {
+  0% {
+    transform: translateX(-50%) translateY(30px) scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+}
 
         /* Medium screens */
         @media (max-width: 1024px) {

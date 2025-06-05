@@ -103,18 +103,18 @@ const Services = () => {
     { image: portfolio4, title: "Hydrogeological Study" },
     { image: portfolio5, title: "ETP and STO Works" },
     { image: portfolio6, title: "Resistivity Survey" },
-    { image: portfolio7, title: "Geoelectrical Resistivity Cross Section" },
+    { image: portfolio7, title: "Geological 2d Cross Sections" },
     { image: portfolio8, title: "Geophysical Investigation Service" },
     { image: portfolio9, title: "Groundwater Survey Services" },
-    { image: portfolio10, title: "Ground Water Recharging Construction Service" },
-    { image: portfolio11, title: "Survey Through Drone" },
+    { image: portfolio10, title: "Recharge Structure Construction" },
+    { image: portfolio11, title: "Ground Water Detection Services" },
     { image: portfolio12, title: "Borewell Construction Service" },
     { image: portfolio13, title: "Roof Water Rain Water Harvesting" },
     { image: portfolio14, title: "Aquifer Recharge Structure" },
     { image: portfolio15, title: "Survey Through Drone" },
     { image: portfolio16, title: "Groundwater Level Monitoring Surveys" },
-    { image: portfolio17, title: "Geophysical Survey at JNRI" },
-    { image: portfolio18, title: "Groundwater Monitoring Survey" }
+    { image: portfolio17, title: "RWH by Latest Technology" },
+    { image: portfolio18, title: "Construction of Recharge Shafts " }
   ];
 
   const logoStyle = {

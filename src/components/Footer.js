@@ -31,13 +31,13 @@ const Footer = () => {
               Contact Us
             </h5>
             <p>
-              <a href="tel:7693039555" className="footer-link">
-                <FaPhone className="me-2" /> 76930-39555
+              <a href="tel:9669954433" className="footer-link">
+                <FaPhone className="me-2" /> +91 96699-54433
               </a>
             </p>
             <p>
-              <a href="tel:9669954433" className="footer-link">
-                <FaPhone className="me-2" /> 96699-54433
+              <a href="tel:7693039555" className="footer-link">
+                <FaPhone className="me-2" /> +91 76930-39555
               </a>
             </p>
             <p>
