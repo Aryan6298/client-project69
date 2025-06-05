@@ -101,9 +101,9 @@ const Services = () => {
     { image: portfolio2, title: "Electromagnetic Survey for Ground Water" },
     { image: portfolio3, title: "Lithological 3D Modeling" },
     { image: portfolio4, title: "Hydrogeological Study" },
-    { image: portfolio5, title: "ETP and STO Works" },
+    { image: portfolio5, title: "Consultancy ETP and STP Works" },
     { image: portfolio6, title: "Resistivity Survey" },
-    { image: portfolio7, title: "Geological 2d Cross Sections" },
+    { image: portfolio7, title: "Geological 2D Cross Sections" },
     { image: portfolio8, title: "Geophysical Investigation Service" },
     { image: portfolio9, title: "Groundwater Survey Services" },
     { image: portfolio10, title: "Recharge Structure Construction" },
@@ -111,9 +111,9 @@ const Services = () => {
     { image: portfolio12, title: "Borewell Construction Service" },
     { image: portfolio13, title: "Roof Water Rain Water Harvesting" },
     { image: portfolio14, title: "Aquifer Recharge Structure" },
-    { image: portfolio15, title: "Survey Through Drone" },
+    { image: portfolio15, title: "Survey Through GR Detector" },
     { image: portfolio16, title: "Groundwater Level Monitoring Surveys" },
-    { image: portfolio17, title: "RWH by Latest Technology" },
+    { image: portfolio17, title: "BoreHole Logging Services" },
     { image: portfolio18, title: "Construction of Recharge Shafts " }
   ];
 
