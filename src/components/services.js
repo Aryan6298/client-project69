@@ -216,7 +216,54 @@ const Services = () => {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        .review-card {
+          background: rgba(255,255,255,0.1);
+          color: #fff;
+          border: 1px solid rgba(255,255,255,0.1);
+          padding: 20px;
+          border-radius: 10px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: background 0.3s ease;
+        }
+        .review-card:hover {
+          background: rgba(255,255,255,0.2);
+        }
+        .view-more-btn {
+          display: block;
+          margin: 2rem auto 0;
+          padding: 10px 25px;
+          background-color: #0D5D5B;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-size: 1.1rem;
+          font-weight: 700;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          width: max-content;
+          transition: background-color 0.3s ease;
+        }
+        .view-more-btn:hover {
+          background-color: #0b4a49;
+          text-decoration: none;
+          color: white;
+        }
       `}</style>
+
+      {/* Experience Section */}
+      <div className="text-center my-5 py-4 px-3 rounded" style={{ background: 'linear-gradient(to right, rgba(13,93,91,0.6), rgba(30,120,119,0.6))', color: 'white' }} data-aos="fade-down">
+        <h2 style={{ fontSize: '3rem', fontWeight: '800', textShadow: '1px 1px 4px rgba(0,0,0,0.4)' }}>
+          15+ Years of Excellence in Geoscience & Environmental Solutions
+        </h2>
+        <p className="mt-3 fs-5" style={{ maxWidth: '800px', margin: '0 auto', fontWeight: '500' }}>
+          With over fifteen years of specialized experience, we have successfully completed a wide range of projects across hydrogeology, geophysics, groundwater management, and environmental compliance.
+          Our expert team integrates the latest technology with proven methodologies to deliver reliable, sustainable solutions tailored to your unique needs.
+        </p>
+      </div>
 
       {/* Clients Section */}
       <div className="my-5 py-5 px-3 rounded" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", cursor: 'pointer' }} data-aos="zoom-in" onClick={handleShowClients}>
@@ -293,6 +340,90 @@ const Services = () => {
           </>
         )}
       </div>
+     {/* Reviews Section */}
+<div className="my-5 py-5 px-3 rounded" style={{ backgroundColor: "rgba(255, 255, 255, 0.07)" }} data-aos="fade-up">
+  <h3 className="client-heading">What Our Clients Say</h3>
+  <div className="row">
+    {/* Left: Review Cards */}
+    <div className="col-md-8">
+      <div className="row">
+        {[{
+          initials: "RS",
+          name: "Mr. Rakesh Sharma",
+          position: "Project Manager, Hindustan Ltd.",
+          review: "GEOCON’s geophysical surveys were instrumental in helping us make informed decisions. Their attention to detail and data accuracy exceeded our expectations.",
+          rating: 4.9
+        }, {
+          initials: "SV",
+          name: "Dr. Seema Verma",
+          position: "Hydrologist, Government of India",
+          review: "Their hydrogeological analysis was comprehensive and well-documented. I highly recommend their services to government and private sector projects alike.",
+          rating: 4.8
+        }, {
+          initials: "RB",
+          name: "Rajeev Bansal",
+          position: "Sr. Engineer, UltraTech Cement",
+          review: "Their team handled our groundwater compliance project with great professionalism. The reporting and execution were timely and efficient.",
+          rating: 4.9
+        },
+       {
+    initials: "NS",
+    name: "Nikita Sinha",
+    position: "Environmental Consultant, EcoStrat Pvt. Ltd.",
+    review: "Working with GEOCON was smooth and efficient. Their rainwater harvesting expertise helped our client achieve sustainability compliance effortlessly.",
+    rating: 4.7
+  }
+      ].map((review, index) => (
+          <div key={index} className="col-md-6 mb-4">
+            <div className="review-card d-flex flex-column">
+              <div className="d-flex align-items-center mb-3">
+                <div className="rounded-circle bg-light text-dark fw-bold me-3 d-flex align-items-center justify-content-center" style={{ width: '50px', height: '50px', fontSize: '1.2rem' }}>
+                  {review.initials}
+                </div>
+                <div>
+                  <div className="fw-bold">{review.name}</div>
+                  <div className="text-light small">{review.position}</div>
+                </div>
+              </div>
+              <p className="fs-6" style={{ fontStyle: "italic" }}>"{review.review}"</p>
+              <div className="d-flex justify-content-between align-items-center mt-2">
+                <div className="text-warning">
+                  {"★★★★★"}
+                </div>
+                <div className="text-light small">
+                  {review.rating}/5
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Right: Satisfaction Summary */}
+    <div className="col-md-4 d-flex align-items-center">
+      <div className="p-4 review-card w-100">
+        <h5 className="text-white fw-bold mb-3">Client Experience & Satisfaction</h5>
+        <p className="mb-2">✔ 15+ Years of Experience in Geoscience</p>
+        <p className="mb-2">✔ 500+ Projects Delivered</p>
+        <p className="mb-2">✔ 98% Client Satisfaction Rate</p>
+        <p className="mb-2">✔ Trusted by Government & Private Sector</p>
+        <p className="mb-2">✔ Accurate Reporting & Timely Delivery</p>
+        <div className="mt-4 text-center">
+          <a
+            href="https://www.google.com/maps/place/Your+Business+Google+Page+Link+Here/reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="view-more-btn"
+          >
+            View More Reviews
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Floating YouTube Video */}
       {showVideo && (
