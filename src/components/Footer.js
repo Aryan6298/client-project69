@@ -17,7 +17,7 @@ const Footer = () => {
 
           {/* About Section */}
           <div className="col" data-aos="fade-up" data-aos-duration="1000">
-            <h5 className="fw-bold mb-3 footer-heading" style={{ color: "blue" }}>
+            <h5 className="fw-bold mb-3 footer-heading" style={{ color: " #00FFFF" }}>
               About Us
             </h5>
             <p style={{ color: "white" }}>
@@ -27,7 +27,7 @@ const Footer = () => {
 
           {/* Contact Us Section */}
           <div className="col" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-            <h5 className="fw-bold mb-3 footer-heading" style={{ color: "blue" }}>
+            <h5 className="fw-bold mb-3 footer-heading" style={{ color: " #00FFFF" }}>
               Contact Us
             </h5>
             <p>
@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* Social + Map Section */}
           <div className="col" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-            <h5 className="fw-bold mb-3 footer-heading" style={{ color: "blue" }}>
+            <h5 className="fw-bold mb-3 footer-heading" style={{ color: " #00FFFF" }}>
               Connect with Us
             </h5>
             <div className="d-flex gap-3 mb-3">
@@ -90,7 +90,7 @@ const Footer = () => {
 
           {/* Address Section */}
           <div className="col" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-            <h5 className="fw-bold mb-3 footer-heading" style={{ color: "blue" }}>
+            <h5 className="fw-bold mb-3 footer-heading" style={{ color: " #00FFFF" }}>
               Our Address
             </h5>
             <p style={{ color: "white" }}>
